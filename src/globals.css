@@ -1,2 +1,10 @@
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-image: url('/background.avif');
+    background-size: 1500px 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
