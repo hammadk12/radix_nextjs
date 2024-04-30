@@ -6,7 +6,7 @@
 body {
     background-image: url('/background.jpg');
     margin: auto;
-    background-size: 1200px 700px;
+   
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
@@ -17,3 +17,23 @@ body {
 }
 
 /* [#FAF0E6] */
+
+:root {
+    --violet-a1: #4422ff0f;
+    --violet-a2: #853ff916;
+    --violet-a3: #8354fe36;
+    --violet-a4: #7d51fd50;
+    --violet-a5: #845ffd5f;
+    --violet-a6: #8f6cfd6d;
+    --violet-a7: #9879ff83;
+    --violet-a8: #977dfea8;
+    --violet-a9: #8668ffcc;
+    --violet-a10: #9176fed7;
+    --violet-a11: #baa7ff;
+    --violet-a12: #e3defffe;
+  }
+
+.heading-text {
+    color: var(--violet-a11);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}

@@ -4,9 +4,9 @@ import Layout from '../layout'
 import '@radix-ui/themes'
 import '../globals.css'
 
-const _app = ({ Component, pageProps }) => {
+const _app = () => {
   return (
-      <div className='text-white'>
+      <div>
         <Layout />
       </div>
   )
