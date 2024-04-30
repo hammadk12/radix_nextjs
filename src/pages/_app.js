@@ -2,6 +2,7 @@
 import React from 'react'
 import Layout from '../layout'
 import '@radix-ui/themes/styles.css'
+import '@radix-ui/themes'
 import '../globals.css'
 
 const _app = () => {
