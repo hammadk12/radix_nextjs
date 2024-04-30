@@ -37,3 +37,7 @@ body {
     color: var(--violet-a11);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
+
+.button-bg {
+    background-color: var(--violet-a11);
+}
