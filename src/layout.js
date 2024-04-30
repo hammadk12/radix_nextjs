@@ -1,9 +1,10 @@
 import React from "react";
+import Navbar from '@/components/Navbar'
 
 const layout = ({ children }) => {
   return (
-    <div>
-      <p>Layout</p>
+    <div className="text-blue-500">
+      <Navbar />
       {children}
     </div>
   )

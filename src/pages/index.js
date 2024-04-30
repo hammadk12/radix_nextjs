@@ -5,7 +5,7 @@ import React from 'react'
 const index = () => {
   return (
     <div>
-      <p>Home page</p>
+      <p className='text-blue-500 text-5xl'>Home page</p>
     </div>
   )
 }
