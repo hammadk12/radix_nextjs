@@ -1,6 +1,7 @@
 // app page layout
 import React from 'react'
 import Layout from '../layout'
+import { Theme } from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
 import '@radix-ui/themes'
 import '../globals.css'
@@ -8,7 +9,9 @@ import '../globals.css'
 const _app = () => {
   return (
       <div>
+    <Theme hasBackground=''>
         <Layout />
+    </Theme>
       </div>
   )
 }

@@ -3,12 +3,12 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div className='p-10 mb-[280px] mt-[120px] md:mb-[260px] card-bg m-10 md:mx-20 lg:mb-[240px] lg:mx-[400px] lg:mt-[80px] rounded-3xl'>
-        <div className='text-[#FAF0E6] text-center m-auto'>
-            <p className='text-4xl md:text-6xl lg:text-7xl lg:leading-[80px] font-semibold'>Become the <span className='font-extrabold text-[#FFFFFF]'>best</span> version of <br></br>yourself with HTrain.</p>
-            <p className='text-xl md:text-2xl lg:text-3xl font'>Stop guessing in the gym. Find what <br></br> works for <span className='font-extrabold text-[#FFFFFF]'>you</span> here. <span className='font-extrabold text-[#FFFFFF]'>No BS.</span></p>
+    <div className='p-10 mb-[280px] mt-[120px] md:mb-[260px] m-10 md:mx-20 lg:mb-[240px] lg:mx-[400px] lg:mt-[80px]'>
+        <div className='text-[#e3defffe] text-left m-auto'>
+            <p className='text-4xl md:text-5xl lg:text-6xl lg:leading-[80px] font-semibold mb-[-2px] '>Evolve your workouts. Make progress. Reap the rewards.</p>
+            <p className='text-xl md:text-2xl lg:text-3xl'>HTrain takes the guesswork out of your training. Build a routine that works for you.</p>
             <Flex justify="center">
-              <Button variant='solid' color='violet' className='px-6 py-3 rounded-md font-bold md:hidden'>Start Here</Button>
+              <Button variant='solid' color='purple' className='px-10 py-5 rounded-md font-extrabold text-white mb-8'>Start Here</Button>
             </Flex>
         </div>
     </div>

@@ -48,6 +48,7 @@ body {
     box-shadow: rgba(121, 113, 233, 0.667) 0px 1px 20px -5px;
     border-radius: var(--radius-3);
     --gray-12: white;
+    border: 3px solid var(--violet-a8);
 }
 
 div.card-bg {
@@ -59,6 +60,6 @@ div.card-bg {
 }
 
 .text:hover {
-    color: #A853FF;
+    color: #baa7ff;
     font-weight: bold;
 }
