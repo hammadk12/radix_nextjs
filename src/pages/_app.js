@@ -9,7 +9,7 @@ import '../globals.css'
 const _app = () => {
   return (
       <div>
-    <Theme hasBackground=''>
+    <Theme accentColor='purple'>
         <Layout />
     </Theme>
       </div>
