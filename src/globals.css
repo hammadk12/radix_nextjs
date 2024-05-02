@@ -48,22 +48,6 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-.button-bg {
-    background-color: var(--violet-a11);
-}
-
-.card-bg {
-    background: linear-gradient(to top right, #4C2C89, #A853FF);
-    box-shadow: rgba(121, 113, 233, 0.667) 0px 1px 20px -5px;
-    border-radius: var(--radius-3);
-    --gray-12: white;
-    border: 3px solid var(--violet-a8);
-}
-
-div.card-bg {
-    border-radius: 12px;
-}
-
 .text {
     transition: color 0.3s
 }
