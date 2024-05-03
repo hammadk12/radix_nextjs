@@ -18,14 +18,25 @@ body {
     font-style: normal;
 }
 
-:where(.radix-themes) {
-    --color-background: #130f1a;
-    
+.radix-themes { 
+    color: var(--violet-a12)
+
 }
 
+.radix-themes:where(.dark, .dark-theme) {
+    &,
+    :root:where(:has(&[data-is-root-theme='true'])) {
+      color-scheme: dark;
+    }
+  }
+
 .radix-themes {
-    color: black;
+    &:where([data-panel-background='solid']) {
+      --color-panel: var(--color-panel-solid);
+      --backdrop-filter-panel: none;
+    }
 }
+
 /* [#FAF0E6] */
 
 .alt-font {
