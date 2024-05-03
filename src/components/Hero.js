@@ -8,7 +8,7 @@ const Hero = () => {
             <p className='text-4xl md:text-5xl lg:text-6xl lg:leading-[80px] font-semibold mb-[-2px] '>Evolve your workouts. Make progress. Reap the rewards.</p>
             <p className='text-xl md:text-2xl lg:text-3xl'>HTrain takes the guesswork out of your training. Build a routine that works for you.</p>
             <Flex justify="left" className='md:justify-center'>
-              <Button variant='solid' color='purple' className='px-10 py-5 rounded-md font-extrabold text-white mb-8'>Start Here</Button>
+              <Button variant='solid' color='purple' className='px-10 py-5 rounded-md font-extrabold text-white mb-8'>Explore</Button>
             </Flex>
         </div>
     </div>
