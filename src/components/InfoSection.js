@@ -3,31 +3,32 @@ import { Grid } from '@radix-ui/themes'
 import { Select } from '@radix-ui/themes'
 import { Button } from '@radix-ui/themes'
 import { Card } from '@radix-ui/themes'
-
+import { Flex } from '@radix-ui/themes'
 
 const InfoSection = () => {
   return (
     <div className='mx-10 md:mx-20 lg:mx-[200px] rounded-3xl shadow-xl mb-[200px] md:p-4'>
       <Card>
       <Grid
-        className='grid md:grid-flow-row w-full text-center md:gap-x-32 p-12 lg:gap-y-20 alt-font'
+        className='grid md:grid-flow-row w-full text-center md:gap-x-32 p-12 gap-y-10 md:gap-y-20 alt-font'
         columns={{ sm: '1fr', md: '1fr 1fr' }}
-        rows='1fr 1fr 1fr'
+        rows={{ lg: '1fr 1fr 1fr'}}
       >
         <div className=''>
           <h2 className='text-3xl lg:text-5xl'>Everything in <span className='font-extrabold text-[#FFFFFF]'>one</span> place.</h2>
-          <Select.Root defaultValue='Select' size="3">
           <p>Select Experience Level: </p>
-            <Select.Trigger color='violet' variant='solid'/>
+          <Flex justify='center'>
+          <Select.Root defaultValue='Select' size="3" >
+            <Select.Trigger color='violet' variant='solid' className='pr-2 '/>
             <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
                 <Select.Item value='Beginner'>Beginner: I know nothing about the gym 🤷‍♂️</Select.Item>
                 <Select.Item value='Intermediate'>Intermediate: I know a little bit 🏋️</Select.Item>
                 <Select.Item value='Advanced'>Advanced: I know how to workout 🦾</Select.Item>
             </Select.Content>
           </Select.Root> 
-         
+         </Flex>
         </div>
-        <div className='md:flex justify-center items-center '>
+        <div className='md:flex justify-center items-center'>
           <h3 className='text-4xl'>Choose your experience level, your goal, and tell us what you like. It’s as simple as that.</h3>
         </div>
         <div className=''>
@@ -47,9 +48,9 @@ const InfoSection = () => {
         </div>
         <div className=''>
           <h2 className='text-3xl lg:text-5xl'><span className='font-extrabold text-[#FFFFFF]'>Reach</span> your goals.</h2>
-          <Button variant='solid' color='violet' className='px-10 py-5 rounded-md font-extrabold text-white mb-8'>Learn More</Button>
+          <Button variant='solid' color='violet' className='px-10 py-5 rounded-md font-extrabold text-white mt-5 md:mt-2'>Learn More</Button>
         </div>
-        <div className='md:flex justify-center items-center '>
+        <div className='md:flex justify-center items-center'>
           <h3 className='text-4xl'>Track your progress, reach your goals, and achieve what you always wanted.</h3>
         </div>
       </Grid>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid } from '@radix-ui/themes'
+import { Card } from '@radix-ui/themes'
 
 const Testimonial = () => {
   return (
@@ -10,21 +11,23 @@ const Testimonial = () => {
         <p>Start Now.</p>
       </div>
       <div>
+        <Card>
         <Grid
-          className='grid md:grid-flow-col w-full text-center'
-          columns={{ sm: '1fr' }}
+          className='grid md:grid-flow-col w-full text-center outline'
+          columns='1fr'
           rows='1fr'
         >
-          <div className='outline'>
+          <div className=''>
             <h6>HTrain helped gain 20lbs of muscle. I love that the application is straight-forward, no BS, and helps people grow.</h6>
           </div>
           <div className='outline'> 
             <h6>I lost 50 lbs from using HTrain!!! I love this application and couldn’t have lost the weight without it. I also retained muscle and didn’t end up being skinny-fat.</h6>
           </div>
-          <div className='outline'>
+          <div className=''>
             <h6>Best fitness app period, I have never seen a app create a custom plan, show me how to achieve my goals, and motivate me to succeed. </h6>
           </div>
         </Grid>
+        </Card>
       </div>
     </div>
   )
