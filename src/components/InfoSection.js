@@ -16,10 +16,9 @@ const InfoSection = () => {
       >
         <div className=''>
           <h2 className='text-3xl lg:text-5xl'>Everything in <span className='font-extrabold text-[#FFFFFF]'>one</span> place.</h2>
-          <p>Select Experience Level: </p>
           <Flex justify='center'>
-          <Select.Root defaultValue='Select' size="3" >
-            <Select.Trigger color='violet' variant='solid' className='pr-2 '/>
+          <Select.Root size="3" >
+            <Select.Trigger color='violet' variant='solid' className='px-2 font-semibold' placeholder='Select Experience Level'/>
             <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
                 <Select.Item value='Beginner'>Beginner: I know nothing about the gym 🤷‍♂️</Select.Item>
                 <Select.Item value='Intermediate'>Intermediate: I know a little bit 🏋️</Select.Item>
@@ -33,9 +32,8 @@ const InfoSection = () => {
         </div>
         <div className=''>
           <h2 className='text-3xl lg:text-5xl'>Get started in <span className='font-extrabold text-[#FFFFFF]'>minutes</span>.</h2>
-          <Select.Root defaultValue='Select' size="3">
-          <p>Choose goal: </p>
-            <Select.Trigger color='violet' variant='solid'/>
+          <Select.Root size="3">
+            <Select.Trigger color='violet' variant='solid' placeholder='Select Goal' className='font-semibold'/>
             <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
                 <Select.Item value='Weight'>Lose Weight 🏃</Select.Item>
                 <Select.Item value='Muscle'>Build Muscle 💪</Select.Item>

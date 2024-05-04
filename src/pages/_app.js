@@ -9,7 +9,7 @@ import '../globals.css'
 const _app = () => {
   return (
       <div>
-    <Theme accentColor="violet" panelBackground='solid' className='dark'>
+    <Theme accentColor="violet" panelBackground='' className='dark'>
         <Layout />
     </Theme>
       </div>
