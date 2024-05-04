@@ -46,7 +46,7 @@ const InfoSection = () => {
         </div>
         <div className=''>
           <h2 className='text-3xl lg:text-5xl'><span className='font-extrabold text-[#FFFFFF]'>Reach</span> your goals.</h2>
-          <Button variant='solid' color='violet' className='px-10 py-5 rounded-md font-extrabold text-white mt-5 md:mt-2'>Learn More</Button>
+          <Button variant='solid' color='violet' className='px-10 py-5 rounded-md font-extrabold text-white mt-5 md:mt-2'>Get Started</Button>
         </div>
         <div className='md:flex justify-center items-center'>
           <h3 className='text-4xl'>Track your progress, reach your goals, and achieve what you always wanted.</h3>

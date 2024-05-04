@@ -4,7 +4,7 @@ import { Card } from '@radix-ui/themes'
 
 const Testimonial = () => {
   return (
-    <div className='mx-10 mb-[400px] lg:mx-[400px]'>
+    <div className='mx-10 mb-[200px] lg:mx-[400px]'>
       <div className='text-left mb-14'>
         <h2 className='mb-10 md:text-3xl lg:text-5xl'>More than 1 million users have become their best self. What is stopping you?</h2>
         <h4 className='mb-6 lg:text-xl'>Our goal at HTrain is to help people achieve and maintain their fitness goals. We break the stigma of all the fitness industry BS. We want to help YOU and get straight to the point. Train hard, recover harder, watch the success come to you.</h4>
