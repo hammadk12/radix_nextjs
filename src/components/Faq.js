@@ -18,22 +18,22 @@ const Faq = () => {
 
             <Flex direction='row' py='8'>
             <Link href='#' className='no-underline '>
-            <ArrowRightIcon className='md:ml-6'/>
-            <span className='ml-5 text-2xl'>How to Get Started</span>
+            <ArrowRightIcon  className='md:ml-6' />
+            <span className='ml-5 text-2xl lg:text-3xl'>How to Get Started</span>
             </Link>
             </Flex>
 
             <Flex direction='row' py='8'>
             <Link href='#' className='no-underline '>
             <ArrowRightIcon className='md:ml-6'/>
-            <span className='ml-5 text-2xl'>Contact Us</span>
+            <span className='ml-5 text-2xl lg:text-3xl'>Contact Us</span>
             </Link>
             </Flex>
 
             <Flex direction='row' py='8'>
             <Link href='#' className='no-underline '>
             <ArrowRightIcon className='md:ml-6'/>
-            <span className='ml-5 text-2xl'>About HTrain</span>
+            <span className='ml-5 text-2xl lg:text-3xl'>About HTrain</span>
             </Link>
             </Flex>
 
