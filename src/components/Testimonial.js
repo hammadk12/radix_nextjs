@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid } from '@radix-ui/themes'
 import { Card } from '@radix-ui/themes'
+import { StarIcon } from '@radix-ui/react-icons'
 
 const Testimonial = () => {
   return (
@@ -27,23 +28,44 @@ const Testimonial = () => {
           <div className='lg:mt-[40px] p-2'>
             <h2>HTrain helped gain 20lbs of muscle.</h2>
             <p> I love that the application is straight-forward, no BS, and helps people grow.</p>
+            <div className='flex items-center gap-x-1'>
             <p>- Ariana B.</p>
+              <StarIcon />
+              <StarIcon/>
+              <StarIcon/>
+              <StarIcon/>
+              <StarIcon/>
+            </div>
           </div>
           </Card>
 
           <Card className='bg-[#853ff916]'>
           <div className='lg:mt-[40px] p-2'> 
             <h2>I lost 50 lbs from using HTrain!!!</h2>
-            <p>I love this application and couldn’t have lost the weight without it. I also retained muscle and didn’t end up being skinny-fat.</p>
+            <p className='text-xs'>I love this application and couldn’t have lost the weight without it. I retained muscle and regained my confidence.</p>
+            <div className='flex items-center gap-x-1'>
             <p>- Micheal P.</p>
+              <StarIcon />
+              <StarIcon/>
+              <StarIcon/>
+              <StarIcon/>
+              <StarIcon/>
+            </div>
           </div>
           </Card>
 
           <Card className='bg-[#853ff916]'>
           <div className='lg:mt-[40px] p-2'>
             <h2>Best fitness app period.</h2>
-            <p>I have never seen a app create a custom plan, show me how to achieve my goals, and motivate me to succeed. </p>
+            <p className='text-xs'>I have never seen a app create a custom plan, show me how to achieve my goals, and motivate me to succeed. </p>
+            <div className='flex items-center gap-x-1'>
             <p>- Chris B.</p>
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+            </div>
           </div>
           </Card>
 

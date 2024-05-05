@@ -1,47 +1,51 @@
 import React from 'react'
-import { Box, Flex } from '@radix-ui/themes'
+import { Flex } from '@radix-ui/themes'
 import Link from 'next/link'
+import { Card } from '@radix-ui/themes'
+import { ArrowRightIcon } from '@radix-ui/react-icons'
 
 const Faq = () => {
   return (
-    <div className='mb-[400px] lg:mx-[400px]'>
-        <Flex justify='start' className='mx-20'>
-            <Box width='50%' height='400px' className='outline'>
-                <h2>Need help?</h2>
-                <p>Check out these resources to get you on track.</p>
-            </Box>
+    <div className='mb-[400px] mx-[60px] lg:mx-[400px]'>
+        <Card size='5'>
+        <div className='md:float-left md:pl-6 md:py-8 lg:text-4xl'>
+            <h2>Need Help?</h2>
+            <p className='text-2xl'>Check out these resources to <br></br>get you on track.</p>
+        </div>
+        <Flex>
             
-            <Box width='50%' height='400px' className='outline py-10'>
-            <Flex direction='column' justify='between' gapY='5'>
-            <Link href='https://github.com/dashboard' className='no-underline'>
-            <svg width="80" height="60" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" strokeWidth="1" fill="none" />
-                <svg x="5" y="4" width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L4 3.5L1 6" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-            </svg>
-            <span>How to get Started</span>
+            <Flex direction='column' justify='between' className='md:pl-20 lg:pl-[250px]'>
+
+            <Flex direction='row' py='8'>
+            <Link href='#' className='no-underline '>
+            <ArrowRightIcon className='md:ml-6'/>
+            <span className='ml-5 text-2xl'>How to Get Started</span>
             </Link>
-            <br></br>
-            <svg width="80" height="60" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" strokeWidth="1" fill="none" />
-                <svg x="5" y="4" width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L4 3.5L1 6" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-            </svg>
-            <br></br>
-            <svg width="80" height="60" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" strokeWidth="1" fill="none" />
-                <svg x="5" y="4" width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L4 3.5L1 6" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-            </svg>
             </Flex>
-            </Box>
+
+            <Flex direction='row' py='8'>
+            <Link href='#' className='no-underline '>
+            <ArrowRightIcon className='md:ml-6'/>
+            <span className='ml-5 text-2xl'>Contact Us</span>
+            </Link>
+            </Flex>
+
+            <Flex direction='row' py='8'>
+            <Link href='#' className='no-underline '>
+            <ArrowRightIcon className='md:ml-6'/>
+            <span className='ml-5 text-2xl'>About HTrain</span>
+            </Link>
+            </Flex>
+
+            </Flex>
+            
            
         </Flex>
+
+        </Card>
     </div>
   )
 }
 
 export default Faq
+
