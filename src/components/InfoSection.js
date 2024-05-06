@@ -3,7 +3,7 @@ import { Grid, Select, Button, Card, Flex } from '@radix-ui/themes'
 
 const InfoSection = () => {
   return (
-    <div ref={ref} className='mx-10 md:mx-20 lg:mx-[200px] rounded-3xl shadow-xl mb-[200px] md:p-4'>
+    <div className='mx-10 md:mx-20 lg:mx-[200px] rounded-3xl shadow-xl mb-[200px] md:p-4'>
       <Card>
       <Grid
         className='grid md:grid-flow-row w-full text-center md:gap-x-32 p-12 gap-y-10 md:gap-y-20 alt-font'
