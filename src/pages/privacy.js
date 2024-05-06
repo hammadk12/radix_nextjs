@@ -3,9 +3,9 @@ import { Link, Card } from '@radix-ui/themes'
 
 const privacy = () => {
   return (
-    <div className='md:mx-[100px] lg:mx-[300px] bg-[#853ff916] my-16'>
-        <Card size='5'>
-        <h2 className='text-4xl font-bold text-center my-10'>Privacy Policy</h2>
+    <div className='md:mx-[100px] lg:mx-[300px] my-16 px-8'>
+        <Card size='5' className='outline-double'>
+        <h2 className='text-4xl font-bold my-10'>Privacy Policy</h2>
 
         <section>
         <h2 className='text-xl font-bold mt-4'>Introduction</h2>
