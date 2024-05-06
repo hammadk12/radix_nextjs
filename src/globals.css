@@ -19,8 +19,7 @@ body {
 }
 
 .radix-themes { 
-    color: var(--violet-a12)
-
+  color: var(--violet-a12)
 }
 
 .radix-themes:where(.dark, .dark-theme) {

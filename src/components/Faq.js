@@ -6,7 +6,7 @@ import { ArrowRightIcon } from '@radix-ui/react-icons'
 
 const Faq = () => {
   return (
-    <div className='mb-[400px] mx-[40px] lg:mx-[400px]'>
+    <div className='mb-[400px] mx-[40px] lg:mx-[400px] bg-[#853ff916]'>
         <Card size='5'>
         <div className='md:float-left md:pl-6 md:py-8 lg:text-4xl'>
             <h2>Need Help?</h2>
