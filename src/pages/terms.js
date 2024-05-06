@@ -43,8 +43,8 @@ const terms = () => {
                 <h2 className="text-2xl font-semibold mt-4 mb-2">6. Return Policy</h2>
                 <p className="mb-4">
                     If you are not satisfied with your purchase, you can return the product within 30 days of purchase for a full refund or exchange. The product must be returned in the same condition you received it and with the original packaging. Please note that some items may be non-refundable and non-exchangeable. If you have any questions feel free to 
-                    <Link href="http://localhost:3001/contact">
-                    <span className='text-blue-600 hover:text-blue-800'> Contact</span>
+                    <Link href="/contact">
+                    <span> Contact</span>
                     </Link> us.
                 </p>
             </section>
