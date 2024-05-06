@@ -2,6 +2,7 @@ import { Flex, Button } from '@radix-ui/themes'
 import React from 'react'
 
 const Hero = () => {
+
   return (
     <div className='p-10 mb-[280px] mt-[120px] md:mb-[260px] m-10 md:mx-20 lg:mb-[240px] lg:mx-[400px] lg:mt-[80px]'>
         <div className='text-left m-auto'>

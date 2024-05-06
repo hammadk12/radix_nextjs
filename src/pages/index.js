@@ -1,11 +1,12 @@
 // home page
 import React from 'react'
+import Hero from '@/components/Hero'
 
 
 const index = () => {
   return (
     <div>
-      <p className='text-blue-500 text-5xl'>Home page</p>
+      <Hero />
     </div>
   )
 }
