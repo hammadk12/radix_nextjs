@@ -5,18 +5,37 @@ import { Button, Card, Grid } from '@radix-ui/themes'
 const contact = () => {
 
 const [open, setOpen] = React.useState(false)
+const [formFilled, setFormFilled] = React.useState(false)
 const timerRef = React.useRef(0)
 
 React.useEffect(() => {
     return () => clearTimeout(timerRef.current)
 }, [])
 
+const handleSubmit = (e) => {
+    e.preventDefault();
+    // Check if the form is filled
+    if (e.target.name.value && e.target.email.value && e.target.subject.value && e.target.message.value) {
+        setFormFilled(true);
+        // Show the toast notification
+        setOpen(true);
+        // Reset the form
+        e.target.reset();
+        // Set a timer to close the toast after 3 seconds
+        timerRef.current = window.setTimeout(() => {
+            setOpen(false);
+            setFormFilled(false);
+        }, 5000);
+    }
+}
+
   return (
-    <Toast.Provider swipeDirection="right" >
+    <Toast.Provider>
     <div className='px-8 md:mx-[100px] lg:mx-[500px] mt-20 mb-32'> 
     <Card size='5' className='bg-[#853ff916]'>
       <h2 className='text-3xl font-bold text-center text-[#baa7ff] mb-10'>Contact Us</h2>
       <form 
+        onSubmit={handleSubmit}
         action='https://formspree.io/f/xrgnoqgb'
         method='POST'
         >
@@ -28,13 +47,11 @@ React.useEffect(() => {
 
             <Button 
                 className=' mt-4 mb-8 col-span-2 shadow-xl'
-                onClick={() => {
-                setOpen(false)
-                window.clearTimeout(timerRef.current)
-                timerRef.current = window.setTimeout(() => {
-                    setOpen(true)
-                }, 100)
-            }} type='submit'>Submit</Button>
+                type='submit'
+                disabled={formFilled}
+            >
+                Submit
+            </Button>
             </Grid>
             </form>
             </Card>
@@ -43,6 +60,7 @@ React.useEffect(() => {
                 className="bg-[#e3defffe] text-black rounded-md p-[15px]"
                 open={open}
                 onOpenChange={setOpen}
+                onClick={() => setOpen(false)}
             >
             <Toast.Title className="mb-[5px] font-medium text-[15px]">
                 Form Submitted
