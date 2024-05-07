@@ -46,7 +46,7 @@ const handleSubmit = (e) => {
           <textarea className="p-4 alt-font resize-none col-span-2 " name='message' placeholder='Message' cols={30} rows={10} required ></textarea>
 
             <Button 
-                className=' mt-4 mb-8 col-span-2 shadow-xl'
+                className='mt-4 mb-8 col-span-2 shadow-xl'
                 type='submit'
                 disabled={formFilled}
             >
