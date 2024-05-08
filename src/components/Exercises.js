@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import { toast } from 'react-toastify'
 import { Button, Card } from '@radix-ui/themes'
 
@@ -6,26 +7,29 @@ const Exercises = () => {
 
   const [exercises, setExercises] = useState([])
   const [muscle, setMuscle] = useState('')
-  const apikey = process.env.API_KEY;
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${muscle}`, {
-        method: 'GET',
-        headers: {
-          'X-API-KEY': apikey
-        }
-      })
-      if (!response.ok) {
-        throw new Error('Failed to fetch exercises');
+      // Fetch the API key from the backend
+    const apiKeyResponse = await axios.get('http://localhost:5000/api/api-key');
+    const apiKey = apiKeyResponse.data.apiKey;
+
+    // Use the fetched API key in the exercise search request
+    const response = await axios.get('http://localhost:5000/api/exercises', {
+      params: {
+        muscle: muscle.toLowerCase()
+      },
+      headers: {
+        'X-API-KEY': apiKey
       }
-      const data = await response.json();
-      setExercises(data.results);
-    } catch (error) {
-      toast.error('Error fetching exercises. Please retry.')
-      console.error('error:', error)
-    }
+    });
+    console.log(response.data);
+    // setExercises(response.data.results);
+  } catch (error) {
+    toast.error('Error fetching exercises. Please retry.');
+    console.error('error:', error);
   }
+};
 
   return (
     <div className='text-center mx-[100px]'>
@@ -39,11 +43,6 @@ const Exercises = () => {
         onChange={(e) => setMuscle(e.target.value)}
       />
       <Button onClick={handleSearch} className=''>Search</Button>
-      <ul>
-        {exercises && exercises.map((exercise) => (
-          <li key={exercise.id}>{exercise.name}</li>
-        ))}
-      </ul>
       </Card>
     </div>
   )
