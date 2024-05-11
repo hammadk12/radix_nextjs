@@ -10,26 +10,25 @@ const Exercises = () => {
 
   const handleSearch = async () => {
     try {
-      // Fetch the API key from the backend
-    const apiKeyResponse = await axios.get('http://localhost:5000/api/api-key');
-    const apiKey = apiKeyResponse.data.apiKey;
+    
+    const response = await axios.get(`http://localhost:5000/api/api-key`)
+    const apiKey = response.data.apiKey
 
-    // Use the fetched API key in the exercise search request
-    const response = await axios.get('http://localhost:5000/api/exercises', {
-      params: {
-        muscle: muscle.toLowerCase()
-      },
+    const exerciseReponse = await axios.get(`http://localhost:5000/api/exercises?muscle=${muscle.toLowerCase()}`, {
       headers: {
         'X-API-KEY': apiKey
       }
-    });
-    console.log(response.data);
-    // setExercises(response.data.results);
+    })
+    console.log('Exercise Response:', exerciseReponse.data);
+    setExercises(exerciseReponse.data);
+
   } catch (error) {
     toast.error('Error fetching exercises. Please retry.');
     console.error('error:', error);
   }
 };
+
+console.log("current exercises state:", exercises)
 
   return (
     <div className='text-center mx-[100px]'>
@@ -40,9 +39,23 @@ const Exercises = () => {
         type="text"
         id="muscle"
         value={muscle}
-        onChange={(e) => setMuscle(e.target.value)}
+        onChange={(e) => {
+          setMuscle(e.target.value)
+          console.log("Muscle value:", e.target.value)
+        }}
       />
       <Button onClick={handleSearch} className=''>Search</Button>
+      <div>
+          {exercises.length > 0 ? (
+            <ul>
+              {exercises.map((exercise, index) => (
+                <li key={index}>{exercise.name}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>No exercises found.</p>
+          )}
+        </div>
       </Card>
     </div>
   )
