@@ -28,8 +28,6 @@ const Exercises = () => {
   }
 };
 
-console.log("current exercises state:", exercises)
-
   return (
     <div className='text-center mx-[100px]'>
       <Card size='5'>
@@ -39,20 +37,18 @@ console.log("current exercises state:", exercises)
         type="text"
         id="muscle"
         value={muscle}
-        onChange={(e) => {
-          setMuscle(e.target.value)
-          console.log("Muscle value:", e.target.value)
-        }}
+        onChange={(e) => setMuscle(e.target.value)}
       />
       <Button onClick={handleSearch} className=''>Search</Button>
       <div>
-          {exercises.length > 0 ? (
+          {exercises.length > 0 && (
             <ul>
               {exercises.map((exercise, index) => (
                 <li key={index}>{exercise.name}</li>
               ))}
             </ul>
-          ) : (
+          )} 
+          {exercises.length === 0 && muscle && (
             <p>No exercises found.</p>
           )}
         </div>
