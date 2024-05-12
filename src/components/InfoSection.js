@@ -16,12 +16,12 @@ const InfoSection = () => {
         <div className=''>
           <h2 className='text-3xl lg:text-5xl'>Everything in <span className='font-extrabold text-[#FFFFFF]'>one</span> place.</h2>
           <Flex justify='center'>
-          <Select.Root size="3" >
+          <Select.Root size="3" disabled >
             <Select.Trigger color='violet' variant='solid' className='px-2 font-semibold' placeholder='Select Experience Level' />
-            <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
-                <Select.Item value='Beginner'>Beginner: I know nothing about the gym 🤷‍♂️</Select.Item>
-                <Select.Item value='Intermediate'>Intermediate: I know a little bit 🏋️</Select.Item>
-                <Select.Item value='Advanced'>Advanced: I know how to workout 🦾</Select.Item>
+            <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black' >
+                <Select.Item value='Beginner' >Beginner: I know nothing about the gym 🤷‍♂️</Select.Item>
+                <Select.Item value='Intermediate' >Intermediate: I know a little bit 🏋️</Select.Item>
+                <Select.Item value='Advanced' >Advanced: I know how to workout 🦾</Select.Item>
             </Select.Content>
           </Select.Root> 
          </Flex>
@@ -31,7 +31,7 @@ const InfoSection = () => {
         </div>
         <div className=''>
           <h2 className='text-3xl lg:text-5xl'>Get started in <span className='font-extrabold text-[#FFFFFF]'>minutes</span>.</h2>
-          <Select.Root size="3">
+          <Select.Root size="3" disabled>
             <Select.Trigger color='violet' variant='solid' placeholder='Select Goal' className='font-semibold'/>
             <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
                 <Select.Item value='Weight'>Get Stronger 🏃</Select.Item>
