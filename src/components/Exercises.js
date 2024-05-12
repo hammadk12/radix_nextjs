@@ -11,9 +11,10 @@ const Exercises = () => {
     setExperienceLevel(value);
   };
 
-  // States for muscle search
+  // States for exercise search
   const [exercises, setExercises] = useState([])
   const [muscle, setMuscle] = useState('')
+  const [searched, setSearched] = useState(false)
 
   // Api request for data
   const handleSearch = async () => {
@@ -28,7 +29,8 @@ const Exercises = () => {
         }
       })
       console.log('Exercise Response:', exerciseReponse.data);
-      setExercises(exerciseReponse.data);
+      setExercises(exerciseReponse.data)
+      setSearched(true)
 
     } catch (error) {
       toast.error('Error fetching exercises. Please retry.');
@@ -38,7 +40,7 @@ const Exercises = () => {
 
   return (
     <div className='text-center mx-10 md:mx-20 lg:mx-[200px]'>
-      <h2 className='text-4xl md:text-5xl lg:text-6xl mt-[80px] mb-[150px]'>Get Started: Create Your Custom Plan</h2>
+      <h2 className='text-3xl md:text-4xl lg:text-6xl mt-[80px] mb-[50px] md:mb-[80px] lg:mb-[150px]'>Get Started: Create Your Custom Plan</h2>
       <Grid
         columns={{ md: '1fr', lg: '1fr 1fr' }} rows='auto auto auto auto'
       >
@@ -125,25 +127,28 @@ const Exercises = () => {
       </Grid>
 
       <Card size='5'>
-        <h2>Exercises</h2>
-        <label htmlFor="muscle" className='mr-2'>Muscle Group:</label>
+        <h2>Check Out Our Favorite Exercises!</h2>
+        <label htmlFor="muscle" className=''></label>
         <input
           type="text"
           id="muscle"
           value={muscle}
           onChange={(e) => setMuscle(e.target.value)}
+          className='mr-2 py-1 px-1 mt-[2px]'
+          placeholder='Enter Muscle Group'
+          required
         />
         <Button onClick={handleSearch} className=''>Search</Button>
         <div>
+        {searched && exercises.length === 0 && muscle && (
+            <p>No exercises found.</p>
+          )}
           {exercises.length > 0 && (
             <ul>
               {exercises.map((exercise, index) => (
                 <li key={index}>{exercise.name}</li>
               ))}
             </ul>
-          )}
-          {exercises.length === 0 && muscle && (
-            <p>No exercises found.</p>
           )}
         </div>
       </Card>
