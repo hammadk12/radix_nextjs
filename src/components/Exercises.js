@@ -42,7 +42,7 @@ const Exercises = () => {
     <div className='text-center mx-10 md:mx-20 lg:mx-[200px]'>
       <h2 className='text-3xl md:text-4xl lg:text-6xl mt-[80px] mb-[50px] md:mb-[80px] lg:mb-[150px]'>Get Started: Create Your Custom Plan</h2>
       <Grid
-        columns={{ md: '1fr', lg: '1fr 1fr' }} rows='auto auto auto auto'
+        columns={{ md: '1fr', lg: '1fr 1fr' }} rows='auto auto auto auto' gapX={{lg: '8'}} gapY='9'
       >
         {/* 1st Card */}
         <Card size='5'>
@@ -68,7 +68,7 @@ const Exercises = () => {
                 <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
                   <Select.Item value='Weight'>Get Stronger 🏃</Select.Item>
                   <Select.Item value='Muscle'>Build Muscle 💪</Select.Item>
-                  <Select.Item value='Improve'>Improve Workouts 📈</Select.Item>
+                  <Select.Item value='Improve'>Both! 📈</Select.Item>
                 </Select.Content>
               </Select.Root>
             </Flex>
@@ -98,14 +98,14 @@ const Exercises = () => {
               <Select.Root size="3">
                 <Select.Trigger color='violet' variant='solid' placeholder='Select Preferences' className='mb-10 font-semibold' />
                 <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
-                  <Select.Item value='Outdoor'>Outdoor Training 🏃</Select.Item>
-                  <Select.Item value='Gym'>Gym Training 💪</Select.Item>
-                  <Select.Item value='Both'>Both!</Select.Item>
+                  <Select.Item value='Outdoor'>Bodyweight Training 🏃</Select.Item>
+                  <Select.Item value='Gym'>Weight Training 💪</Select.Item>
                 </Select.Content>
               </Select.Root>
             </Flex>
           </div>
 
+          {/* Hidden Card */}
           <div>
           {experienceLevel === 'Advanced' && (
             <>
@@ -123,7 +123,15 @@ const Exercises = () => {
             </>
             )}
           </div>
-        </Card>
+          </Card>
+
+          {/* Plan Card */}
+            <Card size='5'>
+              <h2>Your Plan:</h2>
+            </Card>
+
+
+        
       </Grid>
 
       <Card size='5'>
@@ -156,3 +164,35 @@ const Exercises = () => {
 }
 
 export default Exercises
+
+/* 
+ALL
+Bodyweight Training:
+-include full body bodyweight exercises
+-pull ups, push ups, dips, squats
+-vary intensity, volume, focus
+
+ALL PLANS:
+-include rest days + advice for rest
+-include week plan/month plan
+-adjust sets/reps based on goal (strength/hypertrophy)
+
+1-2 Days/Week Weight Training:
+-full body split
+-vary based on experience/focus
+-increase volume/exercises over time
+*/
+
+/* 
+2-4 Days/Week Weight Training:
+-upper/lower split
+-vary based on experience/focus
+-increase volume/exercises over time
+*/
+
+/* 
+4-6 Days/Week Weight Training:
+- Push/Pull or Arnold Split or Mix (give options)
+-vary based on experience/focus
+-increase volume/exercises over time
+*/

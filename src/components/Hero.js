@@ -1,4 +1,4 @@
-import { Flex, Button } from '@radix-ui/themes'
+import { Flex, Button, Link } from '@radix-ui/themes'
 
 const Hero = () => {
 
@@ -15,13 +15,16 @@ const Hero = () => {
             <p className='text-4xl md:text-5xl lg:text-6xl lg:leading-[80px] font-semibold mb-[-2px] '>Evolve your workouts. Make progress. Reap the rewards.</p>
             <p className='text-xl md:text-2xl lg:text-3xl'>HTrain takes the guesswork out of your training. Build a routine that works for you.</p>
             <Flex justify="left">
-              
+              <Link href='/start'>
+              <Button variant='solid' className='mr-6 px-12 py-6 rounded-md font-extrabold text-white mb-8 cursor-pointer'>Get Started</Button>
+              </Link>
               <Button 
                 variant='solid' 
                 className='px-12 py-6 rounded-md font-extrabold text-white mb-8 cursor-pointer'
                 onClick={handleExploreClick}
-                >Explore</Button>
-          
+                >Explore
+              </Button>
+              
             </Flex>
         </div>
     </div>
