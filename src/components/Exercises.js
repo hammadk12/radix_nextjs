@@ -136,7 +136,6 @@ const Exercises = () => {
           onChange={(e) => setMuscle(e.target.value)}
           className='mr-2 py-1 px-1 mt-[2px]'
           placeholder='Enter Muscle Group'
-          required
         />
         <Button onClick={handleSearch} className=''>Search</Button>
         <div>

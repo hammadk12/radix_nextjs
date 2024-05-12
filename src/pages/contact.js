@@ -39,11 +39,11 @@ const handleSubmit = (e) => {
         action='https://formspree.io/f/xrgnoqgb'
         method='POST'
         >
-        <Grid gap='4' columns='1fr 1fr' rows='auto auto auto auto' >
-          <input className="p-4 alt-font" type='text' name='name' placeholder='Name' required />
-          <input className="p-4 alt-font" type='text' name='email' placeholder='Email' required />
-          <input className="p-4 alt-font col-span-2" type='text' name='subject' placeholder='Subject' required />
-          <textarea className="p-4 alt-font resize-none col-span-2 " name='message' placeholder='Message' cols={30} rows={10} required ></textarea>
+        <Grid gap='4' columns={{sm: '1fr' , md:'1fr 1fr'}} rows='auto auto auto auto' className=''>
+          <input className="p-4" type='text' name='name' placeholder='Name' required />
+          <input className="p-4" type='text' name='email' placeholder='Email' required />
+          <input className="p-4 col-span-2" type='text' name='subject' placeholder='Subject' required />
+          <textarea className="p-4 resize-none col-span-2 " name='message' placeholder='Message' cols={30} rows={10} required ></textarea>
 
             <Button 
                 className='mt-4 mb-8 col-span-2 shadow-xl'
