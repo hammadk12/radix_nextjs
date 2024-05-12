@@ -6,7 +6,7 @@ const InfoSection = () => {
 
 
   return (
-    <div id='info' className='mx-10 md:mx-20 lg:mx-[200px] rounded-3xl shadow-xl mb-[200px] md:p-4'>
+    <div id='info' className=' mx-10 md:mx-20 lg:mx-[200px] rounded-3xl shadow-xl mb-[200px] md:p-4'>
       <Card>
       <Grid
         className='grid md:grid-flow-row w-full text-center md:gap-x-32 p-12 gap-y-10 md:gap-y-20 alt-font'
@@ -34,7 +34,7 @@ const InfoSection = () => {
           <Select.Root size="3">
             <Select.Trigger color='violet' variant='solid' placeholder='Select Goal' className='font-semibold'/>
             <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
-                <Select.Item value='Weight'>Lose Weight 🏃</Select.Item>
+                <Select.Item value='Weight'>Get Stronger 🏃</Select.Item>
                 <Select.Item value='Muscle'>Build Muscle 💪</Select.Item>
                 <Select.Item value='Improve'>Improve Workouts 📈</Select.Item>
             </Select.Content>

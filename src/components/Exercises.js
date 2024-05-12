@@ -30,6 +30,7 @@ const Exercises = () => {
 
   return (
     <div className='text-center mx-[100px]'>
+      <h2 className='text-4xl mt-[50px]'>Get Started: Create Your Custom Plan</h2>
       <Card size='5'>
       <h2>Exercises</h2>
       <label htmlFor="muscle" className='mr-2'>Muscle Group:</label>

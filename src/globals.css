@@ -1,25 +1,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"); */
-/* @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Serif+Display:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');  */
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 
 body {
-   /* background-image: url('/background.jpg'); */
     background-color: #4422ff0f;
     margin: auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-    font-family: "Abril Fatface", serif;
-    font-weight: 400;
-    font-style: normal;
+}
+
+h2.primary-font {
+  font-family: "DM Sans", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .radix-themes { 
-  color: var(--violet-a12)
+  color: var(--violet-a12);
+  --default-font-family: var(--font-dmsans)
 }
 
 .radix-themes:where(.dark, .dark-theme) {
@@ -37,13 +40,6 @@ body {
 }
 
 /* [#FAF0E6] */
-
-.alt-font {
-    font-family: "Source Serif 4", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
 
 :root {
     --violet-a1: #4422ff0f;
