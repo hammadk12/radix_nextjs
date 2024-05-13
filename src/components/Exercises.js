@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { Button, Card, Select, Flex, Grid } from '@radix-ui/themes'
+import WeekSchedule from './WeekSchedule'
 
 const Exercises = () => {
   // States for experience selection
@@ -128,6 +129,7 @@ const Exercises = () => {
           {/* Plan Card */}
             <Card size='5'>
               <h2>Your Plan:</h2>
+              <WeekSchedule />
             </Card>
 
 
