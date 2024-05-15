@@ -137,11 +137,13 @@ const Exercises = () => {
           {/* Plan Card */}
             <Card size='5'>
               <h2>Your Plan:</h2>
+              {trainingFrequency ? (
               <WeekSchedule trainingFrequency={trainingFrequency} ExerciseData={ExerciseData}/>
+              ) : (
+                <p>Please select a training frequency.</p>
+              )}
             </Card>
 
-
-        
       </Grid>
 
       <Card size='5'>
