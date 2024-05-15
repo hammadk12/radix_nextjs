@@ -3,6 +3,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { Button, Card, Select, Flex, Grid } from '@radix-ui/themes'
 import WeekSchedule from './WeekSchedule'
+import ExerciseData from './ExerciseData'
 
 const Exercises = () => {
   // States for experience selection
@@ -10,6 +11,13 @@ const Exercises = () => {
 
   const handleExperienceLevelChange = (value) => {
     setExperienceLevel(value);
+  };
+
+  // State for training frequency
+  const [trainingFrequency, setTrainingFrequency] = useState('')
+
+  const handleTrainingFrequencyChange = (value) => {
+    setTrainingFrequency(value);
   };
 
   // States for exercise search
@@ -82,12 +90,12 @@ const Exercises = () => {
             <p className='text-2xl'>2.</p>
             <h4 className='text-left text-2xl'>How Often Would You Train?</h4>
             <Flex>
-              <Select.Root size="3" >
+              <Select.Root size="3" onValueChange={handleTrainingFrequencyChange}>
                 <Select.Trigger color='violet' variant='solid' className=' font-semibold' placeholder='Select Frequency' />
                 <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
-                  <Select.Item value='Beginner'>1-2 Days/Week</Select.Item>
-                  <Select.Item value='Intermediate'>2-4 Days/Week</Select.Item>
-                  <Select.Item value='Advanced'>4-6 Days/Week</Select.Item>
+                  <Select.Item value='1-2 Days/Week'>1-2 Days/Week</Select.Item>
+                  <Select.Item value='2-4 Days/Week'>2-4 Days/Week</Select.Item>
+                  <Select.Item value='4-6 Days/Week'>4-6 Days/Week</Select.Item>
                 </Select.Content>
               </Select.Root>
             </Flex>
@@ -129,7 +137,7 @@ const Exercises = () => {
           {/* Plan Card */}
             <Card size='5'>
               <h2>Your Plan:</h2>
-              <WeekSchedule />
+              <WeekSchedule trainingFrequency={trainingFrequency} ExerciseData={ExerciseData}/>
             </Card>
 
 
@@ -137,7 +145,7 @@ const Exercises = () => {
       </Grid>
 
       <Card size='5'>
-        <h2>Check Out Our Favorite Exercises!</h2>
+        <h2>Search For More Exercises Here!</h2>
         <label htmlFor="muscle" className=''></label>
         <input
           type="text"
@@ -147,13 +155,13 @@ const Exercises = () => {
           className='mr-2 py-1 px-1 mt-[2px]'
           placeholder='Enter Muscle Group'
         />
-        <Button onClick={handleSearch} className=''>Search</Button>
+        <Button onClick={handleSearch} disabled={!muscle.trim()} className=''>Search</Button>
         <div>
         {searched && exercises.length === 0 && muscle && (
             <p>No exercises found.</p>
           )}
           {exercises.length > 0 && (
-            <ul>
+            <ul className='p-2'>
               {exercises.map((exercise, index) => (
                 <li key={index}>{exercise.name}</li>
               ))}
