@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { toast } from 'react-toastify'
 import { Button, Card, Select, Flex, Grid } from '@radix-ui/themes'
 import WeekSchedule from './WeekSchedule'
 import ExerciseData from './ExerciseData'
@@ -42,7 +41,6 @@ const Exercises = () => {
       setSearched(true)
 
     } catch (error) {
-      toast.error('Error fetching exercises. Please retry.');
       console.error('error:', error);
     }
   };
