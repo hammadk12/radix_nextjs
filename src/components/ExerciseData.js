@@ -1,5 +1,4 @@
-const ExerciseData = [
-  {
+const ExerciseData = {
   '1-2 Days/Week': {
     workoutDays: ['Monday', 'Wednesday'],
     restDays: ['Tuesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -7,9 +6,8 @@ const ExerciseData = [
       'Monday': 'Full Body',
       'Wednesday': 'Full Body'
       }
-    }
-  },
-  {
+    },
+
   '2-4 Days/Week': {
     workoutDays: ['Monday', 'Tuesday', 'Thursday', 'Friday'],
     restDays: ['Wednesday', 'Saturday', 'Sunday'],
@@ -20,8 +18,7 @@ const ExerciseData = [
       'Friday': 'Lower Body'
       }
     },
-  },
-  {
+    
     '4-6 Days/Week': {
     workoutDays: ['Monday', 'Tuesday', 'Wednesday', 'Friday', 'Saturday', 'Sunday'],
     restDays: ['Thursday'],
@@ -36,6 +33,5 @@ const ExerciseData = [
       }
     },
   }
-]
   
   export default ExerciseData;  

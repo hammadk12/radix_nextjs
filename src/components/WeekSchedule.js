@@ -18,8 +18,8 @@ const WeekSchedule = ({ trainingFrequency }) => {
                       'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com' 
                     },
                   })
-                console.log("Workout Response:", workoutResponse.data)
-                setExerciseData(workoutResponse.data)
+                const transformedData = Object.keys(workoutResponse.data).map(key => ({ [key]: workoutResponse.data[key] }));
+                setExerciseData(transformedData)
                 setLoading(false)
             } catch (error) {
                 console.error('Error fetching data:', error.response ? error.response.data : error.message);
@@ -31,39 +31,46 @@ const WeekSchedule = ({ trainingFrequency }) => {
             fetchData();
         }, [trainingFrequency])
 
+
     const renderWorkoutPlan = (day) => {
         console.log('Training Frequency:', trainingFrequency);
         console.log('Exercise Data:', exerciseData);
-        const selectedData = exerciseData[trainingFrequency]
 
-        if (!selectedData) {
-            return <p>No workout data found</p>
+        // Check if exerciseData[1] is defined and has the data property
+        if (!exerciseData || !exerciseData[1] || !exerciseData[1].data || exerciseData[1].data.length === 0) {
+        console.log("No exercise data available.");
+        return <p>No workout data found</p>;
         }
 
-        const selectedDayData = selectedData[trainingFrequency].workoutDays.includes(day);
+    // Assuming exerciseData[1].data contains the array of exercises
+        const firstExerciseArray = exerciseData[1].data;
 
-        if (!selectedDayData || selectedDayData.isRestDay) {
-            return <div>
-                    <h3>{day}</h3> 
+         // Check if firstExerciseArray is defined and has at least one exercise
+        if (!firstExerciseArray || firstExerciseArray.length === 0) {
+        console.log("No exercise data available.");
+        return <p>No workout data found</p>;
+        }
+
+        const firstExercise = firstExerciseArray[0];
+
+        console.log("First exercise:", firstExercise.WorkOut);
+        
+        if (firstExercise.isRestDay) {
+            return (
+                <div>
+                    <h3>{day}</h3>
                     <p>Rest Day! Recover, eat, prepare for the next session.</p>
                 </div>
-        }
-
-        const exercises = selectedDayData.exercises || []
-
-        if (!exercises) {
-            return <p>No exercises</p>
+            );
         }
 
         return (
             <div>
                 <h3>{day}</h3>
                 <ul>
-                    {selectedDayData.exercises && selectedDayData.exercises.map((exercise, i) => (
-                        <li key={i}>
-                            {exercise.name} - Sets: {exercise.sets}, Reps: {exercise.reps}
-                        </li>
-                    ))}
+                    <li>
+                        {firstExercise.WorkOut} - Sets: 3, Reps: 12
+                    </li>
                 </ul>
             </div>
         );
@@ -90,6 +97,6 @@ const WeekSchedule = ({ trainingFrequency }) => {
             </div>
         </Tabs.Root>
     );
-};
+}
 
 export default WeekSchedule;
