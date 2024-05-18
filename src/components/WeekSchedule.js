@@ -6,36 +6,71 @@ import ExerciseData from './ExerciseData';
 const WeekSchedule = ({ trainingFrequency }) => {
     const [exerciseData, setExerciseData] = useState([])
     const [loading, setLoading] = useState(true)
-    
-    const fetchData = async () => {
-            try {
-                const response = await axios.get(`http://localhost:5000/api/api-key2`)
-                const apiKey2 = response.data.apiKey2
 
-                const muscle = 'biceps'
-                const workoutResponse = await axios.get(`http://localhost:5000/api/exercises-rapidapi?muscle=${muscle}`, {
-                    headers: {
-                      'X-API-KEY': apiKey2,
-                      'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com' 
-                    },
-                  })
-                const transformedData = Object.keys(workoutResponse.data).map(key => ({ [key]: workoutResponse.data[key] }));
-                setExerciseData(transformedData)
-                setLoading(false)
-            } catch (error) {
-                console.error('Error fetching data:', error.response ? error.response.data : error.message);
-                setLoading(false)
-            }
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`http://localhost:5000/api/api-key2`)
+            const apiKey2 = response.data.apiKey2
+
+            const { muscles, workoutDays } = ExerciseData[trainingFrequency]
+            const exercisesPromises = []
+
+            workoutDays.forEach((day) => {
+                muscles[day].forEach((muscle) => {
+                    const exercisePromise = axios.get(`http://localhost:5000/api/exercises-rapidapi?muscle=${muscle}`, {
+                        headers: {
+                            'X-API-KEY': apiKey2,
+                            'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com',
+                        },
+                    }).then((response) => ({
+                        day,
+                        muscle,
+                        exercise: response.data[0] || null,
+                    }))
+                    exercisesPromises.push(exercisePromise)
+                })
+            });
+
+            // Wait for all exercise promises to resolve
+            const exerciseResponses = await Promise.all(exercisesPromises);
+
+            // Group exercises by day
+            const transformedData = workoutDays.map((day) => {
+                const exercises = exerciseResponses.filter((response) => response.day === day)
+
+                // Remove duplicates based on the exercise
+                const uniqueExercises = []
+                const seenWorkOuts = new Set()
+
+                exercises.forEach(({ muscle, exercise }) => {
+                    if (exercise && !seenWorkOuts.has(exercise.WorkOut)) {
+                        uniqueExercises.push({ muscle, exercise })
+                        seenWorkOuts.add(exercise.WorkOut)
+                    }
+                })
+
+                return {
+                    day,
+                    exercises: uniqueExercises,
+                }
+            })
+
+            console.log("transformed data:", transformedData)
+            setExerciseData(transformedData)
+            setLoading(false)
+        } catch (error) {
+            console.error('Error fetching data:', error.response ? error.response.data : error.message);
+            setLoading(false)
         }
-    
-        useEffect(() => {
-            fetchData();
-        }, [trainingFrequency])
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, [trainingFrequency])
 
 
     const renderWorkoutPlan = (day) => {
         console.log('Training Frequency:', trainingFrequency);
-        console.log('Exercise Data:', exerciseData);
 
         const { workoutDays, restDays, workoutSplits } = ExerciseData[trainingFrequency]
 
@@ -48,44 +83,37 @@ const WeekSchedule = ({ trainingFrequency }) => {
             );
         }
 
-        // Check if exerciseData[1] is defined and has the data property
         if (workoutDays.includes(day)) {
-            if (!exerciseData || !exerciseData[1] || !exerciseData[1].data || exerciseData[1].data.length === 0) {
-            console.log("No exercise data available.");
-            return <p>No workout data found</p>;
+            const exercisesForDay = exerciseData.find((data) => data.day === day)
+
+            if (!exercisesForDay || !exercisesForDay.exercises.length) {
+                console.log(`No exercise data found for ${day}`)
+                return <p>No workout data found</p>
+            }
+
+            console.log(`Exercise for ${day}:`, exercisesForDay)
+
+            return (
+                <div>
+                    <h3>{day}</h3>
+                    <p>{workoutSplits[day]}</p>
+                    <ul>
+                        {exercisesForDay.exercises.map(({ muscle, exercise }, index) => (
+                            <li key={index}>
+                                {exercise.WorkOut} - Sets: 3, Reps: 12
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            );
         }
 
-        const firstExerciseArray = exerciseData[1].data;
-
-         // Check if firstExerciseArray is defined and has at least one exercise
-        if (!firstExerciseArray || firstExerciseArray.length === 0) {
-        console.log("No exercise data available.");
-        return <p>No workout data found</p>;
-        }
-
-        const firstExercise = firstExerciseArray[0];
-
-        // console.log("First exercise:", firstExercise.WorkOut);
-        
-        return (
-            <div>
-                <h3>{day}</h3>
-                <p>{workoutSplits[day]}</p>
-                <ul>
-                    <li>
-                        {firstExercise.WorkOut} - Sets: 3, Reps: 12
-                    </li>
-                </ul>
-            </div>
-        );
+        return null
     }
-
-    return null
-}
 
     return (
         <Tabs.Root defaultValue='Monday' >
-            <Tabs.List> 
+            <Tabs.List>
                 {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
                     <Tabs.Trigger key={day} value={day}>{day}</Tabs.Trigger>
                 ))}
@@ -95,12 +123,12 @@ const WeekSchedule = ({ trainingFrequency }) => {
                 {loading ? (
                     <p>Loading...</p>
                 ) : (
-            ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
-                    <Tabs.Content key={day} value={day}>
-                        {renderWorkoutPlan(day)}
-                    </Tabs.Content>
-                ))
-            )}
+                    ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
+                        <Tabs.Content key={day} value={day}>
+                            {renderWorkoutPlan(day)}
+                        </Tabs.Content>
+                    ))
+                )}
             </div>
         </Tabs.Root>
     );

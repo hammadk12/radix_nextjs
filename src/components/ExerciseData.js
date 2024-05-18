@@ -5,6 +5,10 @@ const ExerciseData = {
     workoutSplits: {
       'Monday': 'Full Body',
       'Wednesday': 'Full Body'
+      },
+      muscles: {
+        'Monday': ['shoulders', 'legs', 'chest', 'back'],
+        'Wednesday': ['shoulders', 'legs', 'chest', 'back']
       }
     },
 
@@ -16,6 +20,12 @@ const ExerciseData = {
       'Tuesday': 'Lower Body',
       'Thursday': 'Upper Body',
       'Friday': 'Lower Body'
+      },
+      muscles: {
+        'Monday': ['chest', 'back'],
+        'Tuesday': ['quadriceps', 'hamstring', 'calves'],
+        'Thursday': ['shoulders', 'biceps', 'triceps'],
+        'Friday': ['quadriceps', 'hamstring', 'calves']
       }
     },
     
@@ -30,6 +40,14 @@ const ExerciseData = {
       'Friday': 'Chest/Back',
       'Saturday': 'Shoulders/Arms',
       'Sunday': 'Legs'
+      },
+      muscles: {
+      'Monday': ['chest', 'triceps'],
+      'Tuesday': ['quadriceps', 'hamstring', 'calves'],
+      'Wednesday': ['back', 'biceps'],
+      'Friday': ['chest', 'back'],
+      'Saturday': ['shoulders', 'triceps', 'biceps'],
+      'Sunday': ['quadriceps', 'hamstring', 'calves']
       }
     },
   }
