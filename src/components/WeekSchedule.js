@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Tabs } from '@radix-ui/themes';
 import ExerciseData from './ExerciseData';
+import Hovercard from './Hovercard';
 
 const WeekSchedule = ({ trainingFrequency }) => {
     const [exerciseData, setExerciseData] = useState([])
@@ -98,9 +99,9 @@ const WeekSchedule = ({ trainingFrequency }) => {
                     <h3>{day}</h3>
                     <p>{workoutSplits[day]}</p>
                     <ul>
-                        {exercisesForDay.exercises.map(({ muscle, exercise }, index) => (
+                        {exercisesForDay.exercises.map(({ exercise }, index) => (
                             <li key={index}>
-                                {exercise.WorkOut} - Sets: 3, Reps: 12
+                                {exercise.WorkOut} - Sets: 2-3, Reps: 6-12
                             </li>
                         ))}
                     </ul>
