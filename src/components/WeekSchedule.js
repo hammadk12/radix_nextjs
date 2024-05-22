@@ -99,10 +99,10 @@ const WeekSchedule = ({ trainingFrequency }) => {
                     <h3>{day}</h3>
                     <p>{workoutSplits[day]}</p>
                     <ul>
-                        {exercisesForDay.exercises.map(({ exercise }, index) => (
-                            <li key={index}>
-                                {exercise.WorkOut} - Sets: 2-3, Reps: 6-12
-                            </li>
+                        {exercisesForDay.exercises.map(({ muscle, exercise }, index) => (
+                                <li key={index}>
+                                    <Hovercard exercise={exercise} />
+                                </li>
                         ))}
                     </ul>
                 </div>

@@ -1,27 +1,29 @@
 import React from 'react'
-import { HoverCard, Text, Flex } from '@radix-ui/themes'
+import { Text, Flex, Link, Box, HoverCard } from '@radix-ui/themes'
 
 const Hovercard = ({ exercise }) => {
+  // console.log(exercise.WorkOut)
   return (
     <Text>
+      {' '}
         <HoverCard.Root>
             <HoverCard.Trigger>
-             Hover me
+             <Link href={exercise.Video} target='_blank'>{exercise.WorkOut}</Link>
             </HoverCard.Trigger>
             <HoverCard.Content maxWidth='600px'>
             <Flex gap='4'>
-                <h4>{exercise.Workout}</h4>
-                <p>Equipment: {exercise.Equipment}</p>
-                <p>Intensity Level: {exercise.Intensity_Level}</p>
-                <p>Explanation: {exercise.Explanation}</p>
-                <p>Beginner Sets: {exercise.Beginner_Sets}</p>
-                <p>Intermediate Sets: {exercise.Intermediate_Sets}</p>
-                <p>Expert Sets: {exercise.Expert_Sets}</p>
-                <p>Long Explanation: {exercise.Long_Explanation}</p>
-                <a href={exercise.video}></a>
+              <Box className='text-black'>
+                <Text>Equipment: {exercise.Equipment}</Text>
+                <Text>Intensity Level: {exercise.Intensity_Level}</Text>
+                <Text>Explanation: {exercise.Explanation}</Text>
+                <Text>Beginner Sets: {exercise.Beginner_Sets}</Text>
+                <Text>Intermediate Sets: {exercise.Intermediate_Sets}</Text>
+                <Text>Expert Sets: {exercise.Expert_Sets}</Text>
+                <Text>Long Explanation: {exercise.Long_Explanation}</Text>
+                </Box>
             </Flex>
             </HoverCard.Content>
-        </HoverCard.Root>
+        </HoverCard.Root>{' '}
     </Text>
   )
 }

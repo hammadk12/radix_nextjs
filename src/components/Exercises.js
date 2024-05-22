@@ -49,7 +49,7 @@ const Exercises = () => {
     <div className='text-center mx-10 md:mx-20 lg:mx-[200px]'>
       <h2 className='text-3xl md:text-4xl lg:text-6xl mt-[80px] mb-[50px] md:mb-[80px] lg:mb-[150px]'>Get Started: Create Your Custom Plan</h2>
       <Grid
-        columns={{ md: '1fr', lg: '1fr 1fr' }} rows='auto auto auto auto' gapX={{lg: '8'}} gapY='9'
+        columns={{ md: '1fr', lg: '1fr 1fr' }} rows='auto auto auto auto' gapX={{ lg: '8' }} gapY='9'
       >
         {/* 1st Card */}
         <Card size='5'>
@@ -84,8 +84,21 @@ const Exercises = () => {
 
         {/* 2nd Card */}
         <Card size='5'>
-          <div className='mb-14'>
+          <div>
             <p className='text-2xl'>2.</p>
+            <h4 className='text-left text-2xl'>What Are Your Preferences?</h4>
+            <Flex>
+              <Select.Root size="3">
+                <Select.Trigger color='violet' variant='solid' placeholder='Select Preferences' className='mb-10 font-semibold' />
+                <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
+                  <Select.Item value='Outdoor'>Bodyweight Training 🏃</Select.Item>
+                  <Select.Item value='Gym'>Weight Training 💪</Select.Item>
+                </Select.Content>
+              </Select.Root>
+            </Flex>
+          </div>
+
+          <div>
             <h4 className='text-left text-2xl'>How Often Would You Train?</h4>
             <Flex>
               <Select.Root size="3" onValueChange={handleTrainingFrequencyChange}>
@@ -99,48 +112,35 @@ const Exercises = () => {
             </Flex>
           </div>
 
-          <div>
-            <h4 className='text-left text-2xl'>What Are Your Preferences?</h4>
-            <Flex>
-              <Select.Root size="3">
-                <Select.Trigger color='violet' variant='solid' placeholder='Select Preferences' className='mb-10 font-semibold' />
-                <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
-                  <Select.Item value='Outdoor'>Bodyweight Training 🏃</Select.Item>
-                  <Select.Item value='Gym'>Weight Training 💪</Select.Item>
-                </Select.Content>
-              </Select.Root>
-            </Flex>
-          </div>
-
           {/* Hidden Card */}
           <div>
-          {experienceLevel === 'Advanced' && (
-            <>
-            <h4 className='text-left text-2xl'>Specific Focus? (Optional)</h4>
-            <Flex>
-              <Select.Root size="3">
-                <Select.Trigger color='violet' variant='solid' placeholder='Select Focus' className='mb-10 font-semibold' />
-                <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
-                  <Select.Item value='Upper'>Upper 🦾</Select.Item>
-                  <Select.Item value='Lower'>Lower 🦿</Select.Item>
-                  <Select.Item value='Full Body'>Both!</Select.Item>
-                </Select.Content>
-              </Select.Root>
-            </Flex>
-            </>
+            {experienceLevel === 'Advanced' && (
+              <>
+                <h4 className='text-left text-2xl mt-20'>Specific Focus? (Optional)</h4>
+                <Flex>
+                  <Select.Root size="3">
+                    <Select.Trigger color='violet' variant='solid' placeholder='Select Focus' className='mb-10 font-semibold' />
+                    <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black'>
+                      <Select.Item value='Upper'>Upper 🦾</Select.Item>
+                      <Select.Item value='Lower'>Lower 🦿</Select.Item>
+                      <Select.Item value='Full Body'>Both!</Select.Item>
+                    </Select.Content>
+                  </Select.Root>
+                </Flex>
+              </>
             )}
           </div>
-          </Card>
+        </Card>
 
-          {/* Plan Card */}
-            <Card size='5'>
-              <h2>Your Plan:</h2>
-              {trainingFrequency ? (
-              <WeekSchedule trainingFrequency={trainingFrequency} ExerciseData={ExerciseData}/>
-              ) : (
-                <p>Please select a training frequency.</p>
-              )}
-            </Card>
+        {/* Plan Card */}
+        <Card size='5'>
+          <h2>Your Plan:</h2>
+          {trainingFrequency ? (
+            <WeekSchedule trainingFrequency={trainingFrequency} ExerciseData={ExerciseData} />
+          ) : (
+            <p>Please select a training frequency.</p>
+          )}
+        </Card>
 
       </Grid>
 
@@ -157,7 +157,7 @@ const Exercises = () => {
         />
         <Button onClick={handleSearch} disabled={!muscle.trim()} className=''>Search</Button>
         <div>
-        {searched && exercises.length === 0 && muscle && (
+          {searched && exercises.length === 0 && muscle && (
             <p>No exercises found.</p>
           )}
           {exercises.length > 0 && (
