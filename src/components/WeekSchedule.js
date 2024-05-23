@@ -98,7 +98,7 @@ const WeekSchedule = ({ trainingFrequency }) => {
                 <div>
                     <h3>{day}</h3>
                     <p>{workoutSplits[day]}</p>
-                    <ul>
+                    <ul className='flex justify-between list-none ml-[-40px] '>
                         {exercisesForDay.exercises.map(({ muscle, exercise }, index) => (
                                 <li key={index}>
                                     <Hovercard exercise={exercise} />
