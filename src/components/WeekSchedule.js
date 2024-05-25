@@ -43,7 +43,9 @@ const WeekSchedule = ({ trainingFrequency }) => {
             const exercisesPromises = []
 
             workoutDays.forEach((day) => {
-                muscles[day].forEach((muscle) => {
+                const musclesForDay = muscles[day]
+                if (Array.isArray(musclesForDay)) {
+                    muscles[day].forEach((muscle) => {
                     const exercisePromise = axios.get(`http://localhost:5000/api/exercises-rapidapi?muscle=${muscle}`, {
                         headers: {
                             'X-API-KEY': apiKey2,
@@ -56,7 +58,35 @@ const WeekSchedule = ({ trainingFrequency }) => {
                     }))
                     exercisesPromises.push(exercisePromise)
                 })
-            });
+            } else {
+                Object.keys(musclesForDay).forEach((muscle) => {  
+                    const numExercises = musclesForDay[muscle]
+                    for (let i = 0; i < numExercises; i++) {
+                    const exercisePromise = axios.get(`http://localhost:5000/api/exercises-rapidapi?muscle=${muscle}`, {
+                        headers: {
+                            'X-API-KEY': apiKey2,
+                            'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com',
+                        },
+                    }).then((response) => {
+                        if (Array.isArray(response.data) && response.data.length > i) {
+                            return {
+                                day,
+                                muscle,
+                                exercise: response.data[i] || null,
+                            }
+                        } else {
+                            return {
+                                day,
+                                muscle,
+                                exercise: null,
+                            }
+                        }
+                    });
+                    exercisesPromises.push(exercisePromise);
+                }
+               })
+            }
+        })
 
             // Wait for all exercise promises to resolve
             const exerciseResponses = await Promise.all(exercisesPromises);
