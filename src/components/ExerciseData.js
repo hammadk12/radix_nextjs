@@ -22,10 +22,10 @@ const ExerciseData = {
       'Friday': 'Lower Body'
       },
       muscles: {
-        'Monday': ['chest', 'back'],
-        'Tuesday': ['quadriceps', 'hamstring', 'calves'],
-        'Thursday': ['shoulders', 'biceps', 'triceps'],
-        'Friday': ['quadriceps', 'hamstring', 'calves']
+        'Monday': {'chest': 2, 'back': 2},
+        'Tuesday': {'quadriceps': 2, 'hamstring': 1, 'calves': 1},
+        'Thursday': {'shoulders': 2, 'biceps': 1, 'triceps': 1},
+        'Friday': {'quadriceps': 1, 'hamstring': 2, 'calves': 1}
       }
     },
     
@@ -42,12 +42,12 @@ const ExerciseData = {
       'Sunday': 'Legs'
       },
       muscles: {
-      'Monday': ['chest', 'triceps'],
-      'Tuesday': ['quadriceps', 'hamstring', 'calves'],
-      'Wednesday': ['back', 'biceps'],
-      'Friday': ['chest', 'back'],
-      'Saturday': ['shoulders', 'triceps', 'biceps'],
-      'Sunday': ['quadriceps', 'hamstring', 'calves']
+      'Monday': {'chest': 3, 'triceps': 1},
+      'Tuesday': {'quadriceps': 2, 'hamstring': 1, 'calves': 1},
+      'Wednesday': {'back': 3, 'biceps': 1},
+      'Friday': {'chest': 2, 'back': 2},
+      'Saturday': {'shoulders': 2, 'triceps': 1, 'biceps': 1},
+      'Sunday': {'quadriceps': 1, 'hamstring': 2, 'calves': 1}
       }
     },
   }
