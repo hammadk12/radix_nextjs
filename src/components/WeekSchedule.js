@@ -1,10 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { Tabs } from '@radix-ui/themes';
+import { Button, Tabs } from '@radix-ui/themes';
 import ExerciseData from './ExerciseData';
 import Hovercard from './Hovercard';
+import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 
 const WeekSchedule = ({ trainingFrequency }) => {
+    const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    const [currentDay, setCurrentDay] = useState(0)
+    const dayRefs = daysOfWeek.map(() => useRef(null))
+
+    const scrollLeft = () => {
+        if (currentDay > 0) {
+            setCurrentDay(currentDay - 1);
+        }
+    }
+
+    const scrollRight = () => {
+        if (currentDay < daysOfWeek.length - 1) {
+            setCurrentDay(currentDay + 1);
+        }
+    }
+
+    useEffect(() => {
+        dayRefs[currentDay].current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
+    }, [currentDay])
+
+
     const [exerciseData, setExerciseData] = useState([])
     const [loading, setLoading] = useState(true)
 
@@ -96,9 +118,8 @@ const WeekSchedule = ({ trainingFrequency }) => {
 
             return (
                 <div>
-                    <h3>{day}</h3>
-                    <p>{workoutSplits[day]}</p>
-                    <ul className='flex justify-between list-none ml-[-40px] '>
+                    <h3>{workoutSplits[day]}</h3>
+                    <ul className='flex flex-col md:flex-row gap-y-4 justify-between ml-[-40px] '>
                         {exercisesForDay.exercises.map(({ muscle, exercise }, index) => (
                                 <li key={index}>
                                     <Hovercard exercise={exercise} />
@@ -113,18 +134,25 @@ const WeekSchedule = ({ trainingFrequency }) => {
     }
 
     return (
-        <Tabs.Root defaultValue='Monday' >
-            <Tabs.List>
-                {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
-                    <Tabs.Trigger key={day} value={day}>{day}</Tabs.Trigger>
+        <Tabs.Root value={daysOfWeek[currentDay]}>
+            <div className='flex items-center'>
+            <Button className='bg-transparent cursor-pointer' onClick={scrollLeft}>
+                <ChevronLeftIcon />
+            </Button>
+            <Tabs.List className='flex overflow-x-auto whitespace-nowrap snap-x snap-mandatory'>
+                {daysOfWeek.map((day, index) => (
+                    <Tabs.Trigger key={day} value={day} ref={dayRefs[index]} className='snap-start'>{day}</Tabs.Trigger>
                 ))}
             </Tabs.List>
-
+            <Button className='bg-transparent cursor-pointer' onClick={scrollRight}>
+                <ChevronRightIcon />
+            </Button>
+            </div>
             <div>
                 {loading ? (
                     <p>Loading...</p>
                 ) : (
-                    ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
+                    daysOfWeek.map((day) => (
                         <Tabs.Content key={day} value={day}>
                             {renderWorkoutPlan(day)}
                         </Tabs.Content>
