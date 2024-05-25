@@ -13,12 +13,16 @@ const WeekSchedule = ({ trainingFrequency }) => {
     const scrollLeft = () => {
         if (currentDay > 0) {
             setCurrentDay(currentDay - 1);
+        } else {
+            setCurrentDay(daysOfWeek.length - 1);
         }
     }
 
     const scrollRight = () => {
         if (currentDay < daysOfWeek.length - 1) {
             setCurrentDay(currentDay + 1);
+        } else {
+            setCurrentDay(0);
         }
     }
 
@@ -119,7 +123,7 @@ const WeekSchedule = ({ trainingFrequency }) => {
             return (
                 <div>
                     <h3>{workoutSplits[day]}</h3>
-                    <ul className='flex flex-col md:flex-row gap-y-4 justify-between ml-[-40px] '>
+                    <ul className='flex flex-col md:flex-row gap-y-4 justify-between ml-[-40px] lg:mx-[200px]'>
                         {exercisesForDay.exercises.map(({ muscle, exercise }, index) => (
                                 <li key={index}>
                                     <Hovercard exercise={exercise} />

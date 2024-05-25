@@ -63,7 +63,7 @@ const Exercises = () => {
                   <Select.Item value='Beginner' className='hidden md:block '>Beginner: I don't know much/anything 🤷‍♂️</Select.Item>
                   <Select.Item value='Beginner-Sm' className='md:hidden'>Beginner 🤷‍♂️</Select.Item>
                   <Select.Item value='Intermediate'>Intermediate: I know a little bit 🏋️</Select.Item>
-                  <Select.Item value='Advanced'>Advanced: I know how to workout 🦾</Select.Item>
+                  <Select.Item value='Expert'>Expert: I know how to workout 🦾</Select.Item>
                 </Select.Content>
               </Select.Root>
             </Flex>
@@ -115,7 +115,7 @@ const Exercises = () => {
 
           {/* Hidden Card */}
           <div>
-            {experienceLevel === 'Advanced' && (
+            {experienceLevel === 'Expert' && (
               <>
                 <h4 className='text-left text-2xl mt-20'>Specific Focus? (Optional)</h4>
                 <Flex>
@@ -134,7 +134,7 @@ const Exercises = () => {
         </Card>
 
         {/* Plan Card */}
-        <Card size='5'>
+        <Card size='5' className='lg:col-span-full'>
           <h2>Your Plan:</h2>
           {trainingFrequency ? (
             <WeekSchedule trainingFrequency={trainingFrequency} ExerciseData={ExerciseData} />
@@ -145,7 +145,7 @@ const Exercises = () => {
 
       </Grid>
 
-      <Card size='5'>
+      <Card size='5' className='mb-[200px]'>
         <h2>Search For More Exercises Here!</h2>
         <label htmlFor="muscle" className=''></label>
         <input

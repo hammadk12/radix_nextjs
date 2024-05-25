@@ -10,7 +10,7 @@ const Hovercard = ({ exercise }) => {
             <HoverCard.Trigger>
              <Link size='5' href={exercise.Video} target='_blank'>{exercise.WorkOut}</Link>
             </HoverCard.Trigger>
-            <HoverCard.Content maxWidth='600px'>
+            <HoverCard.Content className='w-[350px] p-6 mr-14'>
             <Flex gap='4'>
               <Box className='text-black'>
                 <ul>
