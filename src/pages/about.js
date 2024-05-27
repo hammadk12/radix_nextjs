@@ -5,7 +5,7 @@ const about = () => {
   return (
     <div className='mx-10 md:mx-20 lg:mx-[200px]'>
         <h2 className='text-center mt-16 md:mt-18 text-3xl mb-8 '>About HTrain</h2>
-        <p className='text-center mb-10 lg:mb-20 md:text-lg mx-2'>HTrain's mission is to make fitness accessible to everyone, regardless of their experience level or fitness goals.</p>
+        <p className='text-center mb-10 lg:mb-14 md:text-lg mx-2 md:mx-20'>HTrain's mission is to make fitness accessible to everyone, regardless of their experience level or fitness goals.</p>
         <div className='mb-[200px] flex gap-x-[40px]'>
         <Card size='5' className='lg:w-1/2 text-white'>
           <h3 className='text-2xl text-[#8668ffcc]'>Our Story</h3>
