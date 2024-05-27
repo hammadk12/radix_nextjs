@@ -134,12 +134,12 @@ const Exercises = () => {
         </Card>
 
         {/* Plan Card */}
-        <Card size='5' className='lg:col-span-full'>
-          <h2>Your Plan:</h2>
+        <Card size='5' className='lg:col-span-full lg:mx-[200px]'>
+          <h2 className='mb-20'>Your Plan:</h2>
           {trainingFrequency ? (
             <WeekSchedule trainingFrequency={trainingFrequency} ExerciseData={ExerciseData} />
           ) : (
-            <p>Please select a training frequency.</p>
+            <p>Please complete selections above.</p>
           )}
         </Card>
 

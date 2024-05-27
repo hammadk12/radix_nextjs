@@ -33,6 +33,7 @@ const WeekSchedule = ({ trainingFrequency }) => {
 
     const [exerciseData, setExerciseData] = useState([])
     const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     const fetchData = async () => {
         try {
@@ -116,7 +117,13 @@ const WeekSchedule = ({ trainingFrequency }) => {
             setExerciseData(transformedData)
             setLoading(false)
         } catch (error) {
-            console.error('Error fetching data:', error.response ? error.response.data : error.message);
+            if (error.response && error.response.status === 429) {
+                console.log('API limit reached')
+                setError('API limit reached. Please try again later.')
+            } else {
+                console.error('Error fetching data:', error.response ? error.response.data : error.message);
+                setError('An error occurred while fetching data. Please try again later.')
+            }
             setLoading(false)
         }
     }
@@ -127,7 +134,7 @@ const WeekSchedule = ({ trainingFrequency }) => {
 
 
     const renderWorkoutPlan = (day) => {
-        console.log('Training Frequency:', trainingFrequency);
+       // console.log('Training Frequency:', trainingFrequency);
 
         const { workoutDays, restDays, workoutSplits } = ExerciseData[trainingFrequency]
 
