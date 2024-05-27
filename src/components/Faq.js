@@ -17,7 +17,7 @@ const Faq = () => {
             <Flex direction='column' justify='between' className='md:pl-20 lg:pl-[250px]'>
 
             <Flex direction='row' py='8'>
-            <Link href='#' className='no-underline '>
+            <Link href='/start' className='no-underline '>
             <ArrowRightIcon  className='md:ml-6' />
             <span className='ml-5 text-2xl lg:text-3xl'>How to Get Started</span>
             </Link>
@@ -31,7 +31,7 @@ const Faq = () => {
             </Flex>
 
             <Flex direction='row' py='8'>
-            <Link href='#' className='no-underline '>
+            <Link href='/about' className='no-underline '>
             <ArrowRightIcon className='md:ml-6'/>
             <span className='ml-5 text-2xl lg:text-3xl'>About HTrain</span>
             </Link>

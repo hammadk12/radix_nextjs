@@ -191,7 +191,7 @@ const WeekSchedule = ({ trainingFrequency }) => {
             </div>
             <div>
                 {loading ? (
-                    <p>Loading...</p>
+                    <p className='text-2xl text-center'>Loading...</p>
                 ) : (
                     daysOfWeek.map((day) => (
                         <Tabs.Content key={day} value={day}>

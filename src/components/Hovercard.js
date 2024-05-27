@@ -2,7 +2,6 @@ import React from 'react'
 import { Text, Flex, Link, Box, HoverCard, Strong } from '@radix-ui/themes'
 
 const Hovercard = ({ exercise }) => {
-  // console.log(exercise.WorkOut)
   return (
     <Text>
       {' '}
