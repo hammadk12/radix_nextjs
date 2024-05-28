@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import axios from 'axios';
 import { Button, Tabs } from '@radix-ui/themes';
 import ExerciseData from './ExerciseData';
@@ -8,7 +8,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 const WeekSchedule = ({ trainingFrequency }) => {
     const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     const [currentDay, setCurrentDay] = useState(0)
-    const dayRefs = daysOfWeek.map(() => useRef(null))
+    const dayRefs = useRef(daysOfWeek.map(() => null))
 
     const scrollLeft = () => {
         if (currentDay > 0) {
@@ -28,14 +28,14 @@ const WeekSchedule = ({ trainingFrequency }) => {
 
     useEffect(() => {
         dayRefs[currentDay].current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
-    }, [currentDay])
+    }, [currentDay, dayRefs])
 
 
     const [exerciseData, setExerciseData] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
-    const fetchData = async () => {
+    const fetchData = useCallback(async () => {
         try {
             const response = await axios.get(`http://localhost:5000/api/api-key2`)
             const apiKey2 = response.data.apiKey2
@@ -113,7 +113,6 @@ const WeekSchedule = ({ trainingFrequency }) => {
                 }
             })
 
-            console.log("transformed data:", transformedData)
             setExerciseData(transformedData)
             setLoading(false)
         } catch (error) {
@@ -126,11 +125,11 @@ const WeekSchedule = ({ trainingFrequency }) => {
             }
             setLoading(false)
         }
-    }
+    }, [trainingFrequency])
 
     useEffect(() => {
         fetchData();
-    }, [trainingFrequency])
+    }, [fetchData])
 
 
     const renderWorkoutPlan = (day) => {

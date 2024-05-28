@@ -3,7 +3,7 @@ import * as Toast from '@radix-ui/react-toast'
 import { useState, useRef, useEffect } from 'react'
 import { Button, Card, Grid } from '@radix-ui/themes'
 
-const contact = () => {
+const Contact = () => {
 
 const [open, setOpen] = useState(false)
 const [formFilled, setFormFilled] = useState(false)
@@ -78,4 +78,4 @@ const handleSubmit = (e) => {
   )
 }
 
-export default contact
+export default Contact
