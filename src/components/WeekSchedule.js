@@ -27,7 +27,9 @@ const WeekSchedule = ({ trainingFrequency }) => {
     }
 
     useEffect(() => {
-        dayRefs[currentDay].current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
+        if (dayRefs[currentDay]) {
+            dayRefs.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
+        }
     }, [currentDay, dayRefs])
 
 
@@ -36,8 +38,12 @@ const WeekSchedule = ({ trainingFrequency }) => {
     const [error, setError] = useState(null)
 
     const fetchData = useCallback(async () => {
+
+        const apiKey2Endpoint = process.env.NEXT_PUBLIC_API_KEY_ENDPOINT
+        const dataEndpoint = process.env.NEXT_PUBLIC_DATA_ENDPOINT
+    
         try {
-            const response = await axios.get(`http://localhost:5000/api/api-key2`)
+            const response = await axios.get(apiKey2Endpoint)
             const apiKey2 = response.data.apiKey2
 
             const { muscles, workoutDays } = ExerciseData[trainingFrequency]
@@ -47,7 +53,7 @@ const WeekSchedule = ({ trainingFrequency }) => {
                 const musclesForDay = muscles[day]
                 if (Array.isArray(musclesForDay)) {
                     muscles[day].forEach((muscle) => {
-                    const exercisePromise = axios.get(`http://localhost:5000/api/exercises-rapidapi?muscle=${muscle}`, {
+                    const exercisePromise = axios.get(`${dataEndpoint}?muscle=${muscle}`, {
                         headers: {
                             'X-API-KEY': apiKey2,
                             'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com',
@@ -63,7 +69,7 @@ const WeekSchedule = ({ trainingFrequency }) => {
                 Object.keys(musclesForDay).forEach((muscle) => {  
                     const numExercises = musclesForDay[muscle]
                     for (let i = 0; i < numExercises; i++) {
-                    const exercisePromise = axios.get(`http://localhost:5000/api/exercises-rapidapi?muscle=${muscle}`, {
+                    const exercisePromise = axios.get(`${dataEndpoint}?muscle=${muscle}`, {
                         headers: {
                             'X-API-KEY': apiKey2,
                             'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com',
@@ -190,7 +196,7 @@ const WeekSchedule = ({ trainingFrequency }) => {
             </div>
             <div>
                 {loading ? (
-                    <p className='text-2xl text-center'>Loading...</p>
+                    <p className='text-2xl text-center mt-10'>Loading...</p>
                 ) : (
                     daysOfWeek.map((day) => (
                         <Tabs.Content key={day} value={day}>

@@ -26,12 +26,16 @@ const Exercises = () => {
 
   // Api request for data
   const handleSearch = async () => {
+
+    const apiKeyEndpoint = process.env.NEXT_PUBLIC_SEARCH_ENDPOINT
+    const searchEndpoint = process.env.NEXT_PUBLIC_SEARCH_RESPONSE_ENDPOINT
+
     try {
 
-      const response = await axios.get(`http://localhost:5000/api/api-key`)
+      const response = await axios.get(apiKeyEndpoint)
       const apiKey = response.data.apiKey
 
-      const exerciseReponse = await axios.get(`http://localhost:5000/api/exercises?muscle=${muscle.toLowerCase()}`, {
+      const exerciseReponse = await axios.get(`${searchEndpoint}?muscle=${muscle.toLowerCase()}`, {
         headers: {
           'X-API-KEY': apiKey
         }
@@ -175,35 +179,3 @@ const Exercises = () => {
 }
 
 export default Exercises
-
-/* 
-ALL
-Bodyweight Training:
--include full body bodyweight exercises
--pull ups, push ups, dips, squats
--vary intensity, volume, focus
-
-ALL PLANS:
--include rest days + advice for rest
--include week plan/month plan
--adjust sets/reps based on goal (strength/hypertrophy)
-
-1-2 Days/Week Weight Training:
--full body split
--vary based on experience/focus
--increase volume/exercises over time
-*/
-
-/* 
-2-4 Days/Week Weight Training:
--upper/lower split
--vary based on experience/focus
--increase volume/exercises over time
-*/
-
-/* 
-4-6 Days/Week Weight Training:
-- Push/Pull or Arnold Split or Mix (give options)
--vary based on experience/focus
--increase volume/exercises over time
-*/
