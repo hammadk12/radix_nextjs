@@ -10,7 +10,7 @@ const terms = () => {
 
         <section>
             <h2 className='text-2xl font-semibold mt-4 mb-2'>1. Introduction</h2>
-            <p className='mb-4'>Welcome to HTrain! These terms of service outline the rules and regulations for the use of HTrain's Website and services.</p>
+            <p className='mb-4'>Welcome to HTrain! These terms of service outline the rules and regulations for the use of HTrain&apos;s Website and services.</p>
         </section>
 
         <section>
@@ -28,7 +28,7 @@ const terms = () => {
             <section>
                 <h2 className="text-2xl font-semibold mt-4 mb-2">4. Product Information</h2>
                 <p className="mb-4">
-                    We make every effort to display as accurately as possible the colors and images of our products. We cannot guarantee that your computer monitor's display of any color will be accurate.
+                    We make every effort to display as accurately as possible the colors and images of our products. We cannot guarantee that your computer monitor&apos;s display of any color will be accurate.
                 </p>
             </section>
 

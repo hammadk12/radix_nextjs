@@ -60,7 +60,7 @@ const Exercises = () => {
               <Select.Root size="3" onValueChange={handleExperienceLevelChange} >
                 <Select.Trigger color='violet' variant='solid' className='px-2 font-semibold' placeholder='Select Experience Level' />
                 <Select.Content color='violet' variant='soft' position='popper' highContrast className='bg-black py-2'>
-                  <Select.Item value='Beginner' className='hidden md:block '>Beginner: I don't know much/anything 🤷‍♂️</Select.Item>
+                  <Select.Item value='Beginner' className='hidden md:block '>Beginner: I don&apos;t know much/anything 🤷‍♂️</Select.Item>
                   <Select.Item value='Beginner-Sm' className='md:hidden'>Beginner 🤷‍♂️</Select.Item>
                   <Select.Item value='Intermediate'>Intermediate: I know a little bit 🏋️</Select.Item>
                   <Select.Item value='Expert'>Expert: I know how to workout 🦾</Select.Item>
@@ -69,7 +69,7 @@ const Exercises = () => {
             </Flex>
           </div>
           <div>
-            <h4 className='text-left text-2xl'>What's Your Goal?</h4>
+            <h4 className='text-left text-2xl'>What&apos;s Your Goal?</h4>
             <Flex>
               <Select.Root size="3">
                 <Select.Trigger color='violet' variant='solid' placeholder='Select Goal' className='mb-10 font-semibold' />

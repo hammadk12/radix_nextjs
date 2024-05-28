@@ -24,7 +24,7 @@ const privacy = () => {
 
         <section>
         <h2 className='text-xl font-bold mt-4'>Information Sharing and Disclosures</h2>
-        <p>HTrain does not sell, trade, or rent users' personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information.</p>
+        <p>HTrain does not sell, trade, or rent users personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information.</p>
         </section>
 
         <section>

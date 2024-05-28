@@ -1,14 +1,15 @@
 import * as React  from 'react'
 import * as Toast from '@radix-ui/react-toast'
+import { useState, useRef, useEffect } from 'react'
 import { Button, Card, Grid } from '@radix-ui/themes'
 
 const contact = () => {
 
-const [open, setOpen] = React.useState(false)
-const [formFilled, setFormFilled] = React.useState(false)
-const timerRef = React.useRef(0)
+const [open, setOpen] = useState(false)
+const [formFilled, setFormFilled] = useState(false)
+const timerRef = useRef(0)
 
-React.useEffect(() => {
+useEffect(() => {
     return () => clearTimeout(timerRef.current)
 }, [])
 
