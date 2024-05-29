@@ -18,7 +18,7 @@ const about = () => {
           <p className='text-lg mb-10'>Ready to start your fitness journey with HTrain? Sign up today to get access to your personalized workout plan. With HTrain, you can track your progress, reach your goals, and achieve what you always wanted. Get started today and see the difference that HTrain can make in your fitness journey.</p>
         </Card>
 
-        <Card size='5' className='hidden lg:block lg:w-1/2 float-right text-white'>
+        <Card size='5' className='text-white'>
             <h3 className='text-2xl text-[#8668ffcc]'>Our Team</h3>
             <p className='text-lg mb-[100px]'>Our team is made up of fitness experts, trainers, and athletes who are passionate about helping people reach their fitness goals. We&apos;re dedicated to providing you with the best possible workout experience, so you can be confident that you&apos;re getting the best possible workout for your goals.</p>
 
