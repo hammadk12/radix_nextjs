@@ -6,8 +6,8 @@ const about = () => {
     <div className='mx-10 md:mx-20 lg:mx-[200px]'>
         <h2 className='text-center mt-16 md:mt-18 text-3xl mb-8 '>About HTrain</h2>
         <p className='text-center mb-10 lg:mb-14 md:text-lg mx-2 md:mx-20'>HTrain&apos;s mission is to make fitness accessible to everyone, regardless of their experience level or fitness goals.</p>
-        <div className='mb-[200px] flex gap-x-[40px]'>
-        <Card size='5' className='lg:w-1/2 text-white'>
+        <div className='mb-[200px]'>
+        <Card size='5' className=' text-white'>
           <h3 className='text-2xl text-[#8668ffcc]'>Our Story</h3>
           <p className='text-lg mb-[100px] '>HTrain is a fitness platform that helps you reach your fitness goals. We provide a personalized workout plan based on your fitness level, goals, and preferences. Our mission is to make fitness accessible to everyone, regardless of their experience level or fitness goals. Whether you&apos;re a beginner looking to get in shape or an experienced athlete looking to take your training to the next level, HTrain has a plan for you.</p>
 
