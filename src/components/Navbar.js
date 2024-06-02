@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from '@radix-ui/themes'
+import { HoverCard } from '@radix-ui/react-hover-card'
 
 const Navbar = () => {
   return (
