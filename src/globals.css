@@ -17,9 +17,8 @@ body {
 
 
 h2.primary-font {
-  font-family: "DM Sans", sans-serif !important;
   font-optical-sizing: auto;
-  font-weight: 600;
+  font-weight: 800;
   font-style: normal;
 }
 

@@ -15,7 +15,7 @@ const Footer = () => {
             Terms
           </Link>
           <span>|</span>
-          <Link href='/contact' className='px-1 no-underline link'>
+          <Link href='/Contact' className='px-1 no-underline link'>
             Contact
           </Link>
           <p>Copyright © {current_year}, HTrain. All Rights Reserved.</p>

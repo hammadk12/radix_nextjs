@@ -24,7 +24,7 @@ const Faq = () => {
             </Flex>
 
             <Flex>
-            <Link href='/contact' className='no-underline '>
+            <Link href='/Contact' className='no-underline '>
             <ArrowRightIcon className='md:ml-6 hidden md:block'/>
             <span className='ml-5 text-2xl lg:text-3xl list-item'>Contact Us</span>
             </Link>

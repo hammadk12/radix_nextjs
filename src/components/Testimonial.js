@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid } from '@radix-ui/themes'
 import { Card } from '@radix-ui/themes'
 import { StarIcon } from '@radix-ui/react-icons'
+import Link from 'next/link'
 
 const Testimonial = () => {
   return (
@@ -9,7 +10,9 @@ const Testimonial = () => {
       <div className='text-left mb-14'>
         <h2 className='mb-10 text-2xl md:text-3xl lg:text-5xl'>More than <span className='font-extrabold text-[#8668ffcc]'>1 million users</span> have become their best self. What is stopping you?</h2>
         <h4 className='mb-6 text-lg md:text-xl'>Our goal at HTrain is to help people achieve and maintain their fitness goals. We break the stigma of all the fitness industry BS. We want to help YOU and get straight to the point. Train hard, recover harder, watch the success come to you.</h4>
-        <p className='text-lg md:text-xl font-extrabold text-[#8668ffcc]'>Start Now.</p>
+        <Link href='/start' className='text-lg md:text-xl font-extrabold text-[#8668ffcc]'>
+        Start Now.
+        </Link>
       </div>
       <div>
         <Card size='5'>
