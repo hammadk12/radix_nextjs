@@ -6,7 +6,7 @@ const InfoSection = () => {
 
 
   return (
-    <div id='info' className=' mx-10 md:mx-20 lg:mx-[200px] shadow-xl mb-[200px] md:p-4'>
+    <div className=' mx-10 md:mx-20 lg:mx-[200px] shadow-xl mb-[200px]'>
       <Card>
       <Grid
         className='grid md:grid-flow-row w-full text-center md:gap-x-32 p-12 gap-y-10 md:gap-y-20'
@@ -22,7 +22,7 @@ const InfoSection = () => {
          </Flex>
         </div>
         <div className='md:flex justify-center items-center'>
-          <h3 className='text-2xl md:text-4xl pb-16 lg:pb-24 border-b '><span className='text-[#8668ffcc]'>Choose</span> your experience level, your goal, and tell us what you like. It’s as simple as that.</h3>
+          <h3 className='text-2xl md:text-4xl pb-16 lg:pb-24 border-b '>Choose your experience level, your goal, and tell us what you like. It’s as simple as that.</h3>
         </div>
         <div>
           <h2 className='text-3xl lg:text-5xl primary-font mb-10 mt-6'>Get started in <span className='font-extrabold text-[#8668ffcc]'>minutes</span>.</h2>
@@ -34,7 +34,7 @@ const InfoSection = () => {
           <h3 className='text-2xl md:text-4xl mb-6 pb-16 lg:pb-24 border-b'>After HTrain processes your goals, you’ll receive a custom plan just for you.</h3>
         </div>
         <div>
-          <h2 className='text-3xl lg:text-5xl  primary-font'><span className='font-extrabold text-[#8668ffcc]'>Reach</span> your goals.</h2>
+          <h2 className='text-3xl lg:text-5xl mb-6 primary-font'><span className='font-extrabold text-[#8668ffcc]'>Reach</span> your goals.</h2>
           <Link href='/start'>
           <Button variant='solid' color='violet' className='cursor-pointer px-10 py-5 rounded-md font-extrabold text-white mt-5 md:mt-2'>Get Started</Button>
           </Link>

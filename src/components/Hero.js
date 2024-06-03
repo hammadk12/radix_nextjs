@@ -16,11 +16,11 @@ const Hero = () => {
             <p className='text-xl md:text-2xl lg:text-3xl hidden md:block md:mb-4'>HTrain takes the guesswork out of your training. Build a routine that works for you.</p>
             <Flex justify="left">
               <Link href='/start'>
-              <Button variant='solid' className='mr-6 px-12 py-6 rounded-md font-extrabold text-white cursor-pointer'>Get Started</Button>
+              <Button variant='solid' className='mr-6 px-6 py-6 rounded-md font-extrabold text-white cursor-pointer'>Get Started</Button>
               </Link>
               <Button 
                 variant='solid' 
-                className='px-12 py-6 rounded-md font-extrabold text-white cursor-pointer'
+                className='px-6 py-6 rounded-md font-extrabold text-white cursor-pointer'
                 onClick={handleExploreClick}
                 >Explore
               </Button>
