@@ -1,6 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-@tailwind components;
-@tailwind utilities;
+
+@import "tailwindcss/base";
+@import '@radix-ui/themes/styles.css';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 
 
 body {
@@ -12,16 +15,17 @@ body {
     height: 100%;
 }
 
+
 h2.primary-font {
   font-family: "DM Sans", sans-serif !important;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
 }
 
 .radix-themes { 
-  color: var(--violet-a12);
-  --default-font-family: var(--font-dmsans)
+  color: var(--violet-a12) !important;
+  --default-font-family: var(--font-dmsans) !important
 }
 
 .radix-themes:where(.dark, .dark-theme) {
@@ -71,4 +75,8 @@ h2.primary-font {
 
 .link:active {
   color: #e3defffe;
+}
+
+.info-border {
+  border-bottom: white 1px solid;
 }

@@ -1,19 +1,16 @@
 // app page layout
-import React from 'react'
+
+import '../globals.css'
+import { Theme } from '@radix-ui/themes'
+import { DM_Sans } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { Theme } from '@radix-ui/themes'
-import '@radix-ui/themes/styles.css'
-import '@radix-ui/themes'
-import '../globals.css'
-import { DM_Sans } from 'next/font/google'
 
 const dmsans = DM_Sans({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-dmsans'
 })
-
 
 const _app = ({ Component, pageProps }) => {
   return (

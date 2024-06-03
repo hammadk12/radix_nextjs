@@ -7,6 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    corePlugins: {
+      margin: false,
+      padding: false
+    }
+  },
+  variants: {
+    extend: {},
   },
   plugins: [],
-};
+}
