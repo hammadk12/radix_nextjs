@@ -51,15 +51,15 @@ const Exercises = () => {
 
   return (
     <div className='text-center mx-10 md:mx-20 lg:mx-[200px]'>
-      <h2 className='primary-font text-3xl md:text-4xl lg:text-6xl mt-[80px] mb-[50px] md:mb-[80px] lg:mb-[150px]'>Get Started: Create Your Custom Plan</h2>
+      <h2 className='text-3xl md:text-4xl lg:text-6xl mt-[80px] mb-[50px] md:mb-[80px] lg:mb-[150px] text-[#8668ffcc] primary-font'>Get Started: Create Your Custom Plan</h2>
       <Grid
         columns={{ md: '1fr', lg: '1fr 1fr' }} rows='auto auto auto auto' gapX={{ lg: '8' }} gapY='9'
       >
         {/* 1st Card */}
         <Card size='5'>
           <div className='mb-14'>
-            <p className='text-2xl'>1.</p>
-            <h4 className='text-left text-2xl'>How Experienced Are You?</h4>
+            <p className='text-2xl mb-8 md:mb-0'>1.</p>
+            <h4 className='text-left text-2xl mb-8'>How Experienced Are You?</h4>
             <Flex>
               <Select.Root size="3" onValueChange={handleExperienceLevelChange} >
                 <Select.Trigger color='violet' variant='solid' className='px-2 font-semibold' placeholder='Select Experience Level' />
@@ -73,7 +73,7 @@ const Exercises = () => {
             </Flex>
           </div>
           <div>
-            <h4 className='text-left text-2xl'>What&apos;s Your Goal?</h4>
+            <h4 className='text-left text-2xl mb-8'>What&apos;s Your Goal?</h4>
             <Flex>
               <Select.Root size="3">
                 <Select.Trigger color='violet' variant='solid' placeholder='Select Goal' className='mb-10 font-semibold' />
@@ -90,8 +90,8 @@ const Exercises = () => {
         {/* 2nd Card */}
         <Card size='5'>
           <div>
-            <p className='text-2xl'>2.</p>
-            <h4 className='text-left text-2xl'>What Are Your Preferences?</h4>
+            <p className='text-2xl mb-8 md:mb-0'>2.</p>
+            <h4 className='text-left text-2xl mb-8'>What Are Your Preferences?</h4>
             <Flex>
               <Select.Root size="3">
                 <Select.Trigger color='violet' variant='solid' placeholder='Select Preferences' className='mb-10 font-semibold' />
@@ -104,7 +104,7 @@ const Exercises = () => {
           </div>
 
           <div>
-            <h4 className='text-left text-2xl'>How Often Would You Train?</h4>
+            <h4 className='text-left text-2xl mb-8'>How Often Would You Train?</h4>
             <Flex>
               <Select.Root size="3" onValueChange={handleTrainingFrequencyChange}>
                 <Select.Trigger color='violet' variant='solid' className=' font-semibold' placeholder='Select Frequency' />
@@ -121,7 +121,7 @@ const Exercises = () => {
           <div>
             {experienceLevel === 'Expert' && (
               <>
-                <h4 className='text-left text-2xl mt-20'>Specific Focus? (Optional)</h4>
+                <h4 className='text-left text-2xl mt-20 mb-8'>Specific Focus? (Optional)</h4>
                 <Flex>
                   <Select.Root size="3">
                     <Select.Trigger color='violet' variant='solid' placeholder='Select Focus' className='mb-10 font-semibold' />
@@ -150,17 +150,19 @@ const Exercises = () => {
       </Grid>
 
       <Card size='5' className='mb-[200px]'>
-        <h2>Search For More Exercises Here!</h2>
-        <label htmlFor="muscle" className=''></label>
+        <h2 className='mb-4 primary-font'>Search For More Exercises Here!</h2>
+        <div className='flex'>
+        <label htmlFor="muscle"></label>
         <input
           type="text"
           id="muscle"
           value={muscle}
           onChange={(e) => setMuscle(e.target.value)}
-          className='mr-2 py-1 px-1 mt-[2px]'
+          className='mr-2 p-2 rounded mt-[2px]'
           placeholder='Enter Muscle Group'
         />
-        <Button onClick={handleSearch} disabled={!muscle.trim()} className=''>Search</Button>
+        <Button onClick={handleSearch} disabled={!muscle.trim()} className='p-4 py-[22px]'>Search</Button>
+        </div>
         <div>
           {searched && exercises.length === 0 && muscle && (
             <p>No exercises found.</p>
