@@ -8,29 +8,26 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 const WeekSchedule = ({ trainingFrequency }) => {
     const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     const [currentDay, setCurrentDay] = useState(0)
-    const dayRefs = useRef(daysOfWeek.map(() => null))
+    const dayRefs = useRef([])
+    const tabsListRef = useRef(null)
 
     const scrollLeft = () => {
-        if (currentDay > 0) {
-            setCurrentDay(currentDay - 1);
-        } else {
-            setCurrentDay(daysOfWeek.length - 1);
-        }
+            setCurrentDay((prev) => (prev > 0 ? prev - 1 : daysOfWeek.length - 1));
     }
 
     const scrollRight = () => {
-        if (currentDay < daysOfWeek.length - 1) {
-            setCurrentDay(currentDay + 1);
-        } else {
-            setCurrentDay(0);
-        }
+        setCurrentDay((prev) => (prev < daysOfWeek.length - 1 ? prev + 1 : 0));
+    }
+
+    const handleTabClick = (index) => {
+        setCurrentDay(index)
     }
 
     useEffect(() => {
-        if (dayRefs[currentDay]) {
-            dayRefs.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
+        if (dayRefs.current[currentDay]) {
+            dayRefs.current[currentDay].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
         }
-    }, [currentDay, dayRefs])
+    }, [currentDay])
 
 
     const [exerciseData, setExerciseData] = useState([])
@@ -146,7 +143,7 @@ const WeekSchedule = ({ trainingFrequency }) => {
         if (restDays.includes(day)) {
             return (
                 <div>
-                    <h3>{day}</h3>
+                    <h3 className='my-6 text-[#8668ffcc]'>{day}</h3>
                     <p>Rest Day! Recover, eat, prepare for the next session.</p>
                 </div>
             );
@@ -160,12 +157,10 @@ const WeekSchedule = ({ trainingFrequency }) => {
                 return <p>No workout data found</p>
             }
 
-            console.log(`Exercise for ${day}:`, exercisesForDay)
-
             return (
                 <div>
-                    <h3>{workoutSplits[day]}</h3>
-                    <ul className='flex flex-col md:flex-row gap-y-4 justify-between ml-[-40px] lg:mx-[200px]'>
+                    <h3 className='my-6 text-white'>{workoutSplits[day]}</h3>
+                    <ul className='flex flex-col md:flex-row gap-y-4 justify-between lg:mx-[200px] '>
                         {exercisesForDay.exercises.map(({ muscle, exercise }, index) => (
                                 <li key={index}>
                                     <Hovercard exercise={exercise} />
@@ -181,13 +176,20 @@ const WeekSchedule = ({ trainingFrequency }) => {
 
     return (
         <Tabs.Root value={daysOfWeek[currentDay]}>
-            <div className='flex items-center'>
+            <div className='flex items-center mx-[-40px]'>
             <Button className='bg-transparent cursor-pointer' onClick={scrollLeft}>
                 <ChevronLeftIcon />
             </Button>
-            <Tabs.List className='flex overflow-x-auto whitespace-nowrap snap-x snap-mandatory'>
+            <Tabs.List ref={tabsListRef} className='flex overflow-x-auto whitespace-nowrap snap-x snap-mandatory'>
                 {daysOfWeek.map((day, index) => (
-                    <Tabs.Trigger key={day} value={day} ref={dayRefs[index]} className='snap-start'>{day}</Tabs.Trigger>
+                    <Tabs.Trigger 
+                    key={day} 
+                    value={day} 
+                    ref={(el) => (dayRefs.current[index] = el)} 
+                    className='snap-start cursor-pointer'
+                    onClick={() => handleTabClick(index)}>
+                    {day}
+                    </Tabs.Trigger>
                 ))}
             </Tabs.List>
             <Button className='bg-transparent cursor-pointer' onClick={scrollRight}>

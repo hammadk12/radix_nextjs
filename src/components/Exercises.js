@@ -139,7 +139,7 @@ const Exercises = () => {
 
         {/* Plan Card */}
         <Card size='5' className='lg:col-span-full lg:mx-[200px]'>
-          <h2 className='mb-20'>Your Plan:</h2>
+          <h2 className='mb-10'>Your Plan:</h2>
           {trainingFrequency ? (
             <WeekSchedule trainingFrequency={trainingFrequency} ExerciseData={ExerciseData} />
           ) : (
