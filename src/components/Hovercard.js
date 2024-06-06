@@ -10,7 +10,7 @@ const Hovercard = ({ exercise }) => {
     const handleResize = () => setIsMobile(mediaQuery.matches)
 
     mediaQuery.addEventListener('change', handleResize)
-    return () => mediaQuery.removeEventListener(handleResize)
+    return () => mediaQuery.removeEventListener('channge', handleResize)
   }, [])
 
   const handleCardClick = () => {
